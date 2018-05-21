@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./app.css";
 
 import Layout from './layout'
 import { BrowserRouter, Route, Switch  } from 'react-router-dom';
@@ -9,13 +9,6 @@ import RobotConfiguration from './components/routes/robot-configuration';
 // https://daveceddia.com/create-react-app-express-backend/
 
 class App extends Component {
-  state = { roi: [] };
-
-  componentDidMount() {
-    //fetch('/simulate')
-    //.then(res => res.json())
-    //.then(roi => this.setState({ roi }));
-  }
 
   render() {
     return (

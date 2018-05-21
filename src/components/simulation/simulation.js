@@ -7,6 +7,7 @@ import StrategyForm from "../forms/strategy-form";
 import CandleStickChart from "../charts/candle-stick-chart";
 import Error from "../errors/error";
 import ResultJumbotron from "./result-jumbotron";
+import { transformCandleSticksForChart } from "../../helpers/transform-candlesticks-for-chart"
 
 class Simulation extends Component {
   constructor(props) {
@@ -19,65 +20,29 @@ class Simulation extends Component {
     };
   }
 
-  onErrorMounted() {
+  onErrorMounted = () => {
     this.setState({
       errorMounted: !this.state.errorMounted
     })
   }
 
-  onChartMounted() {
+  onChartMounted = () => {
     this.setState({
       chartMounted: !this.state.chartMounted
     })
   }
 
-  onTradesTableMounted() {
+  onTradesTableMounted = () => {
     this.setState({
       tradesTableMounted: !this.state.tradesTableMounted
     })
   }
 
-  onResultJumbotron() {
+  onResultJumbotron = () => {
     this.setState({
       resultJumbotron: !this.state.resultJumbotron
     })
   }
-
-  transformCandleSticksForChart = candleSticks => { // MOVE THIS SOMEWHERE ELSE.
-    let transformedCandleSticks = [];
-    candleSticks.forEach(candleStick => {
-      transformedCandleSticks.push({
-        AbsoluteChange: undefined,
-        close: candleStick.Close,
-        date: new Date(candleStick.Date),
-        dividend: "",
-        ema12: candleStick.ema12,
-        ema26: candleStick.ema26,
-        high: candleStick.High,
-        low: candleStick.Low,
-        MACD: {
-          MACD: candleStick.MACD,
-          signal:
-            candleStick.MACD === undefined
-              ? undefined
-              : candleStick.MACD.signal,
-          divergence:
-            candleStick.MACD === undefined
-              ? undefined
-              : candleStick.MACD.histogram
-        },
-        open: candleStick.Open,
-        percentChange: undefined,
-        smaVolume50: candleStick.VolumeTo, // THIS IS WRONG candleStick.smaVolume50 NEED TO CALCULATE THIS smaVolume50.
-        split: "",
-        volume: candleStick.VolumeFrom // PROBABLY NOT RIGHT VOLUME. DOUBLE-CHECK.
-        // "volumeto" means the volume in the currency that is being traded
-        // "volumefrom" means the volume in the base currency that things are traded into.
-        // https://bitcointalk.org/index.php?topic=1995403.0
-      });
-    });
-    return transformedCandleSticks;
-  };
 
   fetchSimulation = data => {
     simulate(data)
@@ -97,7 +62,7 @@ class Simulation extends Component {
         } else {
           this.setState({
             candleSticks: data.candleSticks,
-            transformedCandleSticks: this.transformCandleSticksForChart(
+            transformedCandleSticks: transformCandleSticksForChart(
               data.candleSticks.reverse()), // MIGHT BE A BAD IDEA. MAYBE IT SHOULD BE REVERSED FROM THE BEGINNING?
             roi: data.roi
           })

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class RobotConfiguration extends Component {
-
   render() {
     return (
       <div className="Robot-config">

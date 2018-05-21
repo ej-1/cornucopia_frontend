@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
-import { MenuItem, DropdownButton, FormControl, ControlLabel, Button } from "react-bootstrap";
+import PropTypes from "prop-types";
+import {
+  MenuItem,
+  DropdownButton,
+  FormControl,
+  ControlLabel,
+  Button
+} from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 
@@ -9,8 +15,7 @@ import "react-datepicker/dist/react-datepicker.css";
 class StrategyForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   handleChangeStartDate = date => {
@@ -19,7 +24,8 @@ class StrategyForm extends Component {
     });
   };
 
-  handleChangeEndDate = date => { // MERGE THE DATE FUNCTINOS INTO ONE FUNCTION INSTEAD OF TWO.
+  handleChangeEndDate = date => {
+    // MERGE THE DATE FUNCTINOS INTO ONE FUNCTION INSTEAD OF TWO.
     this.setState({
       endDate: date
     });
@@ -37,7 +43,8 @@ class StrategyForm extends Component {
     });
   };
 
-  handleChangeAmount = event => { // MOVE THIS TO THE TOP SO THE METHODS ARE IN THE SAME ORDER AS RENDERED OBJECTS.
+  handleChangeAmount = event => {
+    // MOVE THIS TO THE TOP SO THE METHODS ARE IN THE SAME ORDER AS RENDERED OBJECTS.
     this.setState({
       amount: parseInt(event.target.value, 10)
     });
@@ -46,7 +53,13 @@ class StrategyForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { amount, currencyPair, startDate, endDate, strategy } = this.state;
-    this.props.runSimulation({ amount, currencyPair, startDate, endDate, strategy })
+    this.props.runSimulation({
+      amount,
+      currencyPair,
+      startDate,
+      endDate,
+      strategy
+    });
   };
   // DON'T HARDCODE CURRENCY PAIRS IN DROPDOWN.
   render() {
@@ -59,8 +72,7 @@ class StrategyForm extends Component {
             name="strategy-form"
             onSubmit={this.handleSubmit}
           >
-
-            <ControlLabel>Amount</ControlLabel>{' '}
+            <ControlLabel>Amount</ControlLabel>{" "}
             <FormControl
               className="strategy-form-amount"
               componentClass="input"
@@ -69,27 +81,24 @@ class StrategyForm extends Component {
               value={this.state.amount || 1000}
               onChange={this.handleChangeAmount}
             />
-
-              <DropdownButton
-                className="dropdown"
-                title={this.state.currencyPair || "Currency Pair"}
-                onSelect={this.handleChangeCurrencyPair}
-              >
-                <MenuItem eventKey="BTC-BNB">BTC-BNB</MenuItem>
-                <MenuItem eventKey="BTC-USDT">BTC-USDT</MenuItem>
-              </DropdownButton>
-
-              <DropdownButton
+            <DropdownButton
               className="dropdown"
-                title={this.state.strategy || "Strategy"}
-                onSelect={this.handleChangeStrategy}
-              >
-                <MenuItem eventKey="MACD">MACD</MenuItem>
-                <MenuItem eventKey="EMA">EMA</MenuItem>
-              </DropdownButton>
-
+              title={this.state.currencyPair || "Currency Pair"}
+              onSelect={this.handleChangeCurrencyPair}
+            >
+              <MenuItem eventKey="BTC-BNB">BTC-BNB</MenuItem>
+              <MenuItem eventKey="BTC-USDT">BTC-USDT</MenuItem>
+            </DropdownButton>
+            <DropdownButton
+              className="dropdown"
+              title={this.state.strategy || "Strategy"}
+              onSelect={this.handleChangeStrategy}
+            >
+              <MenuItem eventKey="MACD">MACD</MenuItem>
+              <MenuItem eventKey="EMA">EMA</MenuItem>
+            </DropdownButton>
             <div>
-              <ControlLabel>Trading Start date</ControlLabel>{' '}
+              <ControlLabel>Trading Start date</ControlLabel>{" "}
               <DatePicker
                 selected={this.state.startDate || moment()}
                 onChange={this.handleChangeStartDate}
@@ -97,8 +106,7 @@ class StrategyForm extends Component {
                 dateFormat="YYYY/MM/DD HH:00"
                 timeFormat="HH:mm"
               />
-
-              <ControlLabel>Trading End date</ControlLabel>{' '}
+              <ControlLabel>Trading End date</ControlLabel>{" "}
               <DatePicker
                 selected={this.state.endDate || moment()}
                 onChange={this.handleChangeEndDate}
@@ -107,7 +115,9 @@ class StrategyForm extends Component {
                 timeFormat="HH:mm"
               />
             </div>
-            <Button bsStyle="warning" type="submit" block>Submit</Button>
+            <Button bsStyle="warning" type="submit" block>
+              Submit
+            </Button>
           </form>
         </div>
       </div>

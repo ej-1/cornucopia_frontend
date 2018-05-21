@@ -5,9 +5,7 @@ const Footer = () => (
   <div className="footer">
     <Navbar fixedBottom>
       <Nav>
-        <Navbar.Text>
-          Copyright © 2018 CornucopiaTrader
-        </Navbar.Text>
+        <Navbar.Text>Copyright © 2018 CornucopiaTrader</Navbar.Text>
       </Nav>
     </Navbar>
   </div>

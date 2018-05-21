@@ -28,7 +28,7 @@ body {
 
 .strategy-form-container {
   display: inline-block;
-  vertical-align:top;
+  vertical-align: top;
   width: 18%;
 }
 
@@ -72,7 +72,6 @@ body {
 }
 
 .result-jumbotron-container {
-
 }
 
 .result-jumbotron {
@@ -83,7 +82,6 @@ body {
 }
 
 .trades-table-container {
-
 }
 
 .trades-table {
@@ -102,7 +100,6 @@ body {
 }
 
 .chart-container {
-
 }
 
 .chart {
@@ -117,6 +114,10 @@ body {
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

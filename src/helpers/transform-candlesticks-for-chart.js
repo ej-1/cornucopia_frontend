@@ -13,9 +13,7 @@ const transformCandleSticksForChart = candleSticks => {
       MACD: {
         MACD: candleStick.MACD,
         signal:
-          candleStick.MACD === undefined
-            ? undefined
-            : candleStick.MACD.signal,
+          candleStick.MACD === undefined ? undefined : candleStick.MACD.signal,
         divergence:
           candleStick.MACD === undefined
             ? undefined

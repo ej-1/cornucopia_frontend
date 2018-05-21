@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { Table } from "react-bootstrap";
 
 import TradesRowBuy from "../tables/trades-row-buy";
@@ -11,16 +11,17 @@ class TradesTable extends React.PureComponent {
     // Pass ID as key instead of index after adding database.
     // https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318
     this.props.candleSticks.forEach((candleStick, index) => {
-        if (candleStick.Position === 1) {
-          rows.push(
-            <TradesRowBuy trade={candleStick} index={index}/>
-          );
-        }
-        else if (candleStick.Position === -1 && candleStick.trade) {
-          rows.push(
-            <TradesRowSell trade={candleStick.trade} candleStick={candleStick} index={index}/>
-          );
-        }
+      if (candleStick.Position === 1) {
+        rows.push(<TradesRowBuy trade={candleStick} index={index} />);
+      } else if (candleStick.Position === -1 && candleStick.trade) {
+        rows.push(
+          <TradesRowSell
+            trade={candleStick.trade}
+            candleStick={candleStick}
+            index={index}
+          />
+        );
+      }
     });
 
     return (
@@ -39,9 +40,7 @@ class TradesTable extends React.PureComponent {
                 <th>Total Net Profit</th>
               </tr>
             </thead>
-            <tbody>
-              {rows}
-            </tbody>
+            <tbody>{rows}</tbody>
           </Table>
         </div>
       </div>
@@ -51,6 +50,6 @@ class TradesTable extends React.PureComponent {
 
 TradesTable.propTypes = {
   candleSticks: PropTypes.array.isRequired
-}
+};
 
 export default TradesTable;

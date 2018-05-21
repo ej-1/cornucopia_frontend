@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Chart from "../charts/chart";
 //import { getData } from "../charts/utils";
 
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
-class CandleStickChart extends React.PureComponent { // SHOULD I USE React.Purecomponent? https://reactjs.org/docs/optimizing-performance.html#examples
+class CandleStickChart extends React.PureComponent {
+  // SHOULD I USE React.Purecomponent? https://reactjs.org/docs/optimizing-performance.html#examples
   constructor(props) {
     super(props);
-  };
-    /*
+  }
+  /*
       SO FAR: I think I only need to call on this.props.candleSticks below. State is used if I
       need to update something in the component, like if the component changes itself from within
       like Clock (official react docs) example or if I get a props that I want to change.
@@ -29,15 +30,16 @@ class CandleStickChart extends React.PureComponent { // SHOULD I USE React.Purec
   // I only need props, should I ignore state altogether? What is best practice?
 
   render() {
-    if (!this.props.candleSticks) { // check if to use null or undefined.
-			return <div>Loading...</div>
-		}
+    if (!this.props.candleSticks) {
+      // check if to use null or undefined.
+      return <div>Loading...</div>;
+    }
     return (
       <div className="chart-container">
         <div className="chart">
-        <TypeChooser>
-          {type => <Chart type={type} data={this.props.candleSticks} />}
-        </TypeChooser>
+          <TypeChooser>
+            {type => <Chart type={type} data={this.props.candleSticks} />}
+          </TypeChooser>
         </div>
       </div>
     );
@@ -46,6 +48,6 @@ class CandleStickChart extends React.PureComponent { // SHOULD I USE React.Purec
 
 CandleStickChart.propTypes = {
   candleSticks: PropTypes.array.isRequired
-}
+};
 
 export default CandleStickChart;

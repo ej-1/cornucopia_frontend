@@ -1,21 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
-class Error extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
-    return (
-      <div className="error">
-          {this.props.message}
-      </div>
-    );
-  }
-}
+const Error = ({message}) => (
+  <div className="error">
+      {message}
+  </div>
+);
 
 Error.propTypes = {
   message: PropTypes.string.isRequired

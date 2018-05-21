@@ -2,9 +2,7 @@ import React from "react";
 
 class TradesRowSell extends React.Component {
   render() {
-    const candleStick = this.props.candleStick
-    const trade = this.props.candleStick.trade;
-    const index = this.props.index;
+    const { candleStick, trade, index } = this.props;
     console.log(trade)
     return (
       <tr key={index}>

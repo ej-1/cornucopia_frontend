@@ -2,8 +2,7 @@ import React from "react";
 
 class TradesRowBuy extends React.Component {
   render() {
-    const trade = this.props.trade;
-    const index = this.props.index;
+    const { trade, index } = this.props;
     console.log(trade)
     return (
       <tr key={index}>

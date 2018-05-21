@@ -85,16 +85,16 @@ class Simulation extends Component {
     let chart = ""
     let resultJumbotron = ""
 
-    if (this.state.errorMounted === true) {
+    if (this.state.errorMounted) {
       error = <Error message={this.state.error.message} />
     }
-    if (this.state.tradesTableMounted === true) {// DO NOT THROW AWAY THE ENTIRE COMPPONENT, but how to remember? prevState does not work here..
+    if (this.state.tradesTableMounted) {// DO NOT THROW AWAY THE ENTIRE COMPPONENT, but how to remember? prevState does not work here..
       tradesTable = <TradesTable candleSticks={this.state.candleSticks} roi={this.state.roi} />
     }
-    if (this.state.chartMounted === true) {
+    if (this.state.chartMounted) {
       chart = <CandleStickChart candleSticks={this.state.transformedCandleSticks} />
     }
-    if (this.state.resultJumbotron === true) {
+    if (this.state.resultJumbotron) {
       resultJumbotron = <ResultJumbotron roi={this.state.roi} />
     }
     return (

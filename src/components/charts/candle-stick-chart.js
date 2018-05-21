@@ -29,7 +29,7 @@ class CandleStickChart extends React.PureComponent { // SHOULD I USE React.Purec
   // I only need props, should I ignore state altogether? What is best practice?
 
   render() {
-    if (this.props.candleSticks === null || this.props.candleSticks === undefined) { // check if to use null or undefined.
+    if (!this.props.candleSticks) { // check if to use null or undefined.
 			return <div>Loading...</div>
 		}
     return (

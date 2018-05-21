@@ -88,31 +88,25 @@ class Simulation extends Component {
   };
 
   render() {
-    let error = "";
-    let tradesTable = "";
-    let chart = "";
-    let resultJumbotron = "";
+    const error = this.state.error && (
+      <Error message={this.state.error.message} />
+    );
 
-    if (this.state.errorMounted) {
-      error = <Error message={this.state.error.message} />;
-    }
-    if (this.state.tradesTableMounted) {
-      // DO NOT THROW AWAY THE ENTIRE COMPPONENT, but how to remember? prevState does not work here..
-      tradesTable = (
-        <TradesTable
-          candleSticks={this.state.candleSticks}
-          roi={this.state.roi}
-        />
-      );
-    }
-    if (this.state.chartMounted) {
-      chart = (
-        <CandleStickChart candleSticks={this.state.transformedCandleSticks} />
-      );
-    }
-    if (this.state.resultJumbotron) {
-      resultJumbotron = <ResultJumbotron roi={this.state.roi} />;
-    }
+    const tradesTable = this.state.tradesTableMounted && (
+      <TradesTable
+        candleSticks={this.state.candleSticks}
+        roi={this.state.roi}
+      />
+    );
+
+    const chart = this.state.chartMounted && (
+      <CandleStickChart candleSticks={this.state.transformedCandleSticks} />
+    );
+
+    const resultJumbotron = this.state.resultJumbotron && (
+      <ResultJumbotron roi={this.state.roi} />
+    );
+
     return (
       <div className="simulation">
         <StrategyForm runSimulation={this.fetchSimulation} />

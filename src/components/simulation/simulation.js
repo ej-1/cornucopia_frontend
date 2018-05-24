@@ -66,7 +66,7 @@ class Simulation extends Component {
         this.setState({
           candleSticks: data.candleSticks,
           transformedCandleSticks: transformCandleSticksForChart(
-            data.candleSticks.reverse()
+            data.candleSticks
           ), // MIGHT BE A BAD IDEA. MAYBE IT SHOULD BE REVERSED FROM THE BEGINNING?
           roi: data.roi
         });

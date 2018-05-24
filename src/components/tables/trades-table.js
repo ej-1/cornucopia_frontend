@@ -11,9 +11,9 @@ class TradesTable extends React.PureComponent {
     // Pass ID as key instead of index after adding database.
     // https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318
     this.props.candleSticks.forEach((candleStick, index) => {
-      if (candleStick.Position === 1) {
+      if (candleStick.position === 1) {
         rows.push(<TradesRowBuy trade={candleStick} index={index} />);
-      } else if (candleStick.Position === -1 && candleStick.trade) {
+      } else if (candleStick.position === -1 && candleStick.trade) {
         rows.push(
           <TradesRowSell
             trade={candleStick.trade}

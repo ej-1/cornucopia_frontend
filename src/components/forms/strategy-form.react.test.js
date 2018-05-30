@@ -6,6 +6,16 @@ import moment from "moment";
 
 const fetchSimulation = jest.fn();
 
+test("renders correctly", () => {
+  const tree = renderer
+    .create(<StrategyForm runSimulation={fetchSimulation} />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+// USE THIS: https://reactjs.org/docs/test-renderer.html
+// https://github.com/jamiebuilds/react-test-renderer/blob/master/README.md
+
 // Test that handleSubmit() calls parent's function.
 // Mock testing function call with arguments
 // https://stackoverflow.com/questions/43245040/using-jest-to-spy-on-method-call-in-componentdidmount
@@ -118,61 +128,3 @@ test("Datepicker enddate value is changed on change", () => {
     '<input type="text" id="datepicker-enddate" class="" value="2013/01/01 00:00">'
   );
 });
-
-// USE THIS: https://reactjs.org/docs/test-renderer.html
-// https://github.com/jamiebuilds/react-test-renderer/blob/master/README.md
-
-// DON'T NEED TO TEST
-// that dropdown works as intended. Trust in react-bootstrap.
-
-// test datepicker that it changes startDate and endDate.
-
-// test input that it changes startDate and endDate.
-
-/*
-test("Dropdown selected values changes on select", () => {
-  let dropdown = form.find("#dropdown-currencypair");
-  let menuitem = dropdown.childAt(0);
-  expect(menuitem.childAt(0).text()).toEqual("BTC-BNB");
-  menuitem.simulate("click");
-  //expect(form.props()).toEqual("blaasaa");
-  //expect(form.find("#dropdown-currencypair").html()).toEqual("bla");
-  let tree = component.toJSON();
-  tree.props.handleChangeCurrencyPair("BNB-USDT");
-  tree = component.toJSON();
-  expect(tree).toEqual("va");
-  //expect(menuitem.html()).toEqual(""<li role=\"presentation\" class=\"\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">BTC-BNB</a></li>"");
-});
-
-test("Link changes the class when hovered", () => {
-  const component = renderer.create(<StrategyForm />);
-  let tree = component.toJSON();
-  //expect(tree).toMatchSnapshot();
-
-  // manually trigger the callback
-  //tree.props.handleChangeCurrencyPair("BNB-USDT");
-  // re-rendering
-  tree = component.toJSON();
-  console.log(tree.children[0].children[0]);
-  //expect(tree.children).toMatchSnapshot();
-});
-
-
-test("Dropdown defautl value", () => {
-  let dropdown = form.find("#dropdown-currencypair");
-  expect(dropdown.html()).toEqual(
-    '<div class="dropdown btn-group"><button id="dropdown-currencypair" role="button" aria-haspopup="true" aria-expanded="false" type="button" class="dropdown dropdown-toggle btn btn-default">Currency Pair <span class="caret"></span></button><ul role="menu" class="dropdown-menu" aria-labelledby="dropdown-currencypair"><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="#">BTC-BNB</a></li><li role="presentation" class=""><a role="menuitem" tabindex="-1" href="#">BTC-USDT</a></li></ul></div>'
-  );
-});
-*/
-/*
-  const component = renderer.create(<StrategyForm />);
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-*/
-
-// if IMPORT SYNTAX ERROR - solution : yarn add --dev babel-jest babel-core regenerator-runtime
-//
-// if TypeError: environment.teardown is not a function - solution: npm install jest-cli
-//
-//

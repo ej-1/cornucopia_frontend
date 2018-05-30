@@ -52,7 +52,7 @@ class StrategyForm extends Component {
   };
 
   handleSubmit = event => {
-    //event.preventDefault();
+    event.preventDefault();
     const { amount, currencyPair, startDate, endDate, strategy } = this.state;
     this.props.runSimulation({
       amount,

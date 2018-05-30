@@ -29,14 +29,14 @@ test("handleSubmit, sends correct data when state is set", () => {
     strategy: "MACD"
   };
   wrapper.setState(data);
-
-  wrapper.instance().handleSubmit();
+  wrapper.find("form").simulate("submit");
 
   expect(fetchSimulation).toHaveBeenCalledWith(data);
 });
 
 // Test that snapshot sets state attributes on clicking form submit button.
 test("User fills in form and submit, setting state fields", () => {
+  const fetchSimulation = jest.fn();
   const wrapper = mount(<StrategyForm runSimulation={fetchSimulation} />);
 
   const amountInput = wrapper.find("#strategy-form-amount");
@@ -76,8 +76,12 @@ test("User fills in form and submit, setting state fields", () => {
 
   expect(wrapper.state()).toEqual(data_two);
 
-  wrapper.instance().handleSubmit();
-
+  console.log("look here", wrapper.find(".btn-warning").html());
+  // .simulate('click') does not work on button.
+  //wrapper.find(".btn-warning").simulate("click"); //.prop("onClick");
+  // This is calling the submit function directl, but does not work with preventDefault()-
+  //wrapper.instance().handleSubmit();
+  wrapper.find("form").simulate("submit");
   expect(fetchSimulation).toHaveBeenCalledWith(data_two);
 });
 

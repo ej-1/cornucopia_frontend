@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoBox gets rendered 1`] = `
+<div
+  className="col-md-6 col-xs-12"
+>
+  <div
+    className="page-header"
+  >
+    <h1>
+      <span>
+        Run trade simulations
+        <br />
+      </span>
+    </h1>
+  </div>
+  <p>
+    <span>
+      With CornucopiaTrader you simulate trading based on technical 
+      <br />
+    </span>
+    <span>
+                   indicators on historical exchange data from Binance.
+      <br />
+    </span>
+  </p>
+  <a
+    className="btn btn-primary"
+    href="/simulate"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+  >
+    Simulate now
+  </a>
+</div>
+`;

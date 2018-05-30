@@ -1,4 +1,3 @@
-// Link.react.test.js
 import React from "react";
 import Error from "../errors/error";
 import renderer from "react-test-renderer";

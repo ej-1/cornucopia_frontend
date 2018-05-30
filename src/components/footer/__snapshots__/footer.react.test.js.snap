@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header gets rendered 1`] = `
+<div
+  className="footer"
+>
+  <nav
+    className="navbar navbar-default navbar-fixed-bottom"
+  >
+    <div
+      className="container"
+    >
+      <ul
+        className="nav navbar-nav"
+        role={null}
+      >
+        <p
+          active={undefined}
+          activeHref={undefined}
+          activeKey={undefined}
+          className="navbar-text"
+          onSelect={null}
+        >
+          Copyright © 2018 CornucopiaTrader
+        </p>
+      </ul>
+    </div>
+  </nav>
+</div>
+`;

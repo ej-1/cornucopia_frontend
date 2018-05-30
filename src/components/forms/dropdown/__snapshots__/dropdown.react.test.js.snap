@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer gets rendered 1`] = `
+<div
+  className="dropdown btn-group"
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup={true}
+    className="dropdown dropdown-toggle btn btn-default"
+    disabled={false}
+    id="dropdown-the nice title"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    type="button"
+  >
+    Choose the nice title
+     
+    <span
+      className="caret"
+    />
+  </button>
+  <ul
+    aria-labelledby="dropdown-the nice title"
+    className="dropdown-menu"
+    role="menu"
+  >
+    <li
+      className=""
+      role="presentation"
+      style={undefined}
+    >
+      <a
+        href="#"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+      >
+        OPTION NUMBER 1
+      </a>
+    </li>
+    <li
+      className=""
+      role="presentation"
+      style={undefined}
+    >
+      <a
+        href="#"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+      >
+        OPTION NUMBER 2
+      </a>
+    </li>
+    <li
+      className=""
+      role="presentation"
+      style={undefined}
+    >
+      <a
+        href="#"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menuitem"
+        tabIndex="-1"
+      >
+        OPTION NUMBER 3
+      </a>
+    </li>
+  </ul>
+</div>
+`;

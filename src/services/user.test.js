@@ -9,3 +9,5 @@ it("works with promises", () => {
   //console.log(user.getUserName());
   return user.getUserName(4).then(data => expect(data).toEqual("Mark"));
 });
+
+// READ MORE ABOUT THIS TEST HERE https://facebook.github.io/jest/docs/en/tutorial-async.html

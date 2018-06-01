@@ -74,7 +74,7 @@ test("User fills in form and submit, setting state fields", () => {
     endDate: moment("2013-01-01")
   };
 
-  expect(wrapper.state()).toEqual(data_two);
+  expect(wrapper.state()).toEqual(data_two); // CHANGE THIS NAME
 
   console.log("look here", wrapper.find(".btn-warning").html());
   // .simulate('click') does not work on button.

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoBox gets rendered 1`] = `
+<div
+  className="result-jumbotron-container"
+>
+  <div
+    className="result-jumbotron"
+  >
+    <h3>
+      Total ROI: 
+      23.45
+       %
+    </h3>
+  </div>
+</div>
+`;

@@ -1,3 +1,5 @@
-const transformCandleSticksForChart = candleSticks => {};
+const transformCandleSticksForChart = candleSticks => {
+  return candleSticks;
+};
 
 export { transformCandleSticksForChart };

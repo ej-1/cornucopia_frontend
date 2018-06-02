@@ -48,7 +48,7 @@ class Simulation extends Component {
     return transformCandleSticksForChart(candleSticks); // MIGHT BE A BAD IDEA. MAYBE IT SHOULD BE REVERSED FROM THE BEGINNING?
   };
 
-  setCandleSticks = (candleSticks, roi) => {
+  setCandleSticks = candleSticks => {
     this.setState({
       candleSticks: candleSticks
     });
@@ -107,7 +107,7 @@ class Simulation extends Component {
   };
 
   fetchSimulation = data => {
-    this.handleFetchSimulation(data, this.onComponentsMount);
+    return this.handleFetchSimulation(data, this.onComponentsMount);
   };
 
   render() {

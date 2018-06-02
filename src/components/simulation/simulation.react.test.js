@@ -105,3 +105,51 @@ test("onComponentsMount sets state to render Components and sets correct state",
   });
 });
 //test("Render Error if error occurs", () => {});
+
+test("Set state functions", () => {
+  const wrapper = mount(<Simulation />);
+
+  wrapper.instance().onErrorMounted();
+  wrapper.instance().onChartMounted();
+  wrapper.instance().onTradesTableMounted();
+  wrapper.instance().onResultJumbotron();
+  wrapper.instance().setCandleSticks(dataWithCandleSticks.candleSticks);
+  wrapper
+    .instance()
+    .setTransformedCandleSticks(["transformed candleSticks placeholder one"]);
+  wrapper.instance().setRoi(34.2);
+  expect(wrapper.state()).toEqual({
+    candleSticks: [
+      { close: "19.20", date: "2013-01-01" },
+      { close: "21.40", date: "2013-01-02" }
+    ],
+    chartMounted: true,
+    errorMounted: true,
+    resultJumbotron: true,
+    roi: 34.2,
+    tradesTableMounted: true,
+    transformedCandleSticks: ["transformed candleSticks placeholder one"]
+  });
+
+  wrapper.instance().onErrorMounted();
+  wrapper.instance().onChartMounted();
+  wrapper.instance().onTradesTableMounted();
+  wrapper.instance().onResultJumbotron();
+  wrapper.instance().setCandleSticks(dataWithCandleSticks.candleSticks);
+  wrapper
+    .instance()
+    .setTransformedCandleSticks(["transformed candleSticks placeholder two"]);
+  wrapper.instance().setRoi(45.2);
+  expect(wrapper.state()).toEqual({
+    candleSticks: [
+      { close: "19.20", date: "2013-01-01" },
+      { close: "21.40", date: "2013-01-02" }
+    ],
+    chartMounted: false,
+    errorMounted: false,
+    resultJumbotron: false,
+    roi: 45.2,
+    tradesTableMounted: false,
+    transformedCandleSticks: ["transformed candleSticks placeholder two"]
+  });
+});

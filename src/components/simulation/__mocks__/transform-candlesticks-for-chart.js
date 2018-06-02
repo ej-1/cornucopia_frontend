@@ -1,5 +1,3 @@
-const transformCandleSticksForChart = candleSticks => {
-  console.log("TRANSFORMER ACTIVATED");
-};
+const transformCandleSticksForChart = candleSticks => {};
 
 export { transformCandleSticksForChart };

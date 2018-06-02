@@ -18,6 +18,7 @@ const dataWithCandleSticks = {
   roi: 23.45
 };
 
+// IS THIS TEST TESTING FOR TO MUCH, I ONLY NEED TO KNOW THAT TWO FUNCTIONS WHERE CALLED.
 test("fetchSimulation", () => {
   const wrapper = mount(<Simulation />);
 
@@ -47,68 +48,196 @@ test("fetchSimulation", () => {
 
 // How to test promises
 // https://stackoverflow.com/questions/36400623/test-promise-chain-with-jest
-test("handleFetchSimulation calls onComponentsMount and runs simulation", () => {
+describe("handleFetchSimulation", () => {
   const wrapper = mount(<Simulation />);
-  const onComponentsMount = jest.fn(() => {
-    return Promise.resolve("value1");
+
+  test("makes successful API call and calls onComponentsMount", () => {
+    const wrapper = mount(<Simulation />);
+    const onComponentsMount = jest.fn(() => {
+      return Promise.resolve("value1");
+    });
+
+    expect.assertions(1);
+
+    return wrapper
+      .instance()
+      .handleFetchSimulation({ strategy: "MACD" }, onComponentsMount)
+      .then(data => {
+        expect(onComponentsMount).toBeCalledWith({
+          candleSticks: [
+            { date: "2013-01-01", close: "19.20" },
+            { date: "2013-01-02", close: "21.40" }
+          ],
+          roi: 23.45
+        });
+      });
   });
 
-  expect.assertions(1);
+  test("makes successful API call, receives error", () => {
+    const wrapper = mount(<Simulation />);
+    const onComponentsMount = jest.fn(() => {
+      return Promise.resolve("value1");
+    });
 
-  return wrapper
-    .instance()
-    .handleFetchSimulation({ strategy: "MACD" }, onComponentsMount)
-    .then(data => {
-      expect(onComponentsMount).toBeCalledWith({
-        candleSticks: [
-          { date: "2013-01-01", close: "19.20" },
-          { date: "2013-01-02", close: "21.40" }
-        ],
-        roi: 23.45
+    expect.assertions(1);
+
+    return expect(
+      wrapper
+        .instance()
+        .handleFetchSimulation(
+          { strategy: "SOME INVALID STRATEGY" },
+          onComponentsMount
+        )
+    ).rejects.toEqual({ error: "Fetch failed. Something wen't wrong" });
+  });
+});
+
+describe("onComponentsMount", () => {
+  describe("error received", () => {
+    describe("no components set", () => {
+      test("set state to render Error component", () => {
+        const wrapper = mount(<Simulation />);
+        const data = { error: "SOME ERROR" };
+        wrapper.setState({
+          chartMounted: false,
+          errorMounted: false,
+          tradesTableMounted: false,
+          resultJumbotron: false
+        });
+
+        wrapper.instance().onComponentsMount(data);
+        expect(wrapper.state()).toEqual({
+          chartMounted: false,
+          errorMounted: true,
+          tradesTableMounted: false,
+          resultJumbotron: false,
+          error: "SOME ERROR"
+        });
       });
     });
-});
 
-test("onComponentsMount sets state to render Error component if error is supplied", () => {
-  const wrapper = mount(<Simulation />);
-  const data = { error: "SOME ERROR" };
+    describe("Error component set", () => {
+      test("set state to render Error component", () => {
+        const wrapper = mount(<Simulation />);
+        const data = { error: "SOME ERROR" };
+        wrapper.setState({
+          chartMounted: false,
+          errorMounted: true,
+          tradesTableMounted: false,
+          resultJumbotron: false
+        });
 
-  wrapper.instance().onComponentsMount(data);
+        wrapper.instance().onComponentsMount(data);
+        expect(wrapper.state()).toEqual({
+          chartMounted: false,
+          errorMounted: true,
+          tradesTableMounted: false,
+          resultJumbotron: false,
+          error: "SOME ERROR"
+        });
+      });
+    });
 
-  expect(wrapper.state()).toEqual({
-    chartMounted: false,
-    errorMounted: true,
-    tradesTableMounted: false,
-    resultJumbotron: false,
-    error: "SOME ERROR"
+    describe("Non Error components set", () => {
+      test("set state to render Error component", () => {
+        const wrapper = mount(<Simulation />);
+        const data = { error: "SOME ERROR" };
+        wrapper.setState({
+          chartMounted: true,
+          errorMounted: false,
+          tradesTableMounted: true,
+          resultJumbotron: true
+        });
+
+        wrapper.instance().onComponentsMount(data);
+        expect(wrapper.state()).toEqual({
+          chartMounted: false,
+          errorMounted: true,
+          tradesTableMounted: false,
+          resultJumbotron: false,
+          error: "SOME ERROR"
+        });
+      });
+    });
+  });
+
+  describe("candleSticks and ROI received", () => {
+    describe("No components set", () => {
+      test("sets state to render Components and sets correct state", () => {
+        const wrapper = mount(<Simulation />);
+        wrapper.setState({
+          chartMounted: false,
+          errorMounted: false,
+          tradesTableMounted: false,
+          resultJumbotron: false
+        });
+
+        wrapper.instance().onComponentsMount(dataWithCandleSticks);
+        expect(wrapper.state()).toEqual({
+          chartMounted: true,
+          errorMounted: false,
+          resultJumbotron: true,
+          tradesTableMounted: true,
+          error: undefined,
+          candleSticks: dataWithCandleSticks.candleSticks,
+          roi: dataWithCandleSticks.roi,
+          transformedCandleSticks: dataWithCandleSticks.candleSticks
+        });
+      });
+    });
+
+    describe("Error component set", () => {
+      test("sets state to render Components and sets correct state", () => {
+        const wrapper = mount(<Simulation />);
+        wrapper.setState({
+          chartMounted: false,
+          errorMounted: true,
+          tradesTableMounted: false,
+          resultJumbotron: false
+        });
+
+        wrapper.instance().onComponentsMount(dataWithCandleSticks);
+        expect(wrapper.state()).toEqual({
+          chartMounted: true,
+          errorMounted: false,
+          resultJumbotron: true,
+          tradesTableMounted: true,
+          error: undefined,
+          candleSticks: dataWithCandleSticks.candleSticks,
+          roi: dataWithCandleSticks.roi,
+          transformedCandleSticks: dataWithCandleSticks.candleSticks
+        });
+      });
+    });
+
+    describe("Non Error components set ", () => {
+      test("onComponentsMount sets state to render Components and sets correct state", () => {
+        const wrapper = mount(<Simulation />);
+        wrapper.setState({
+          chartMounted: false,
+          errorMounted: false,
+          tradesTableMounted: false,
+          resultJumbotron: false
+        });
+
+        wrapper.instance().onComponentsMount(dataWithCandleSticks);
+        expect(wrapper.state()).toEqual({
+          chartMounted: true,
+          errorMounted: false,
+          resultJumbotron: true,
+          tradesTableMounted: true,
+          error: undefined,
+          candleSticks: dataWithCandleSticks.candleSticks,
+          roi: dataWithCandleSticks.roi,
+          transformedCandleSticks: dataWithCandleSticks.candleSticks
+        });
+      });
+    });
   });
 });
 
-test("onComponentsMount sets state to render Components and sets correct state", () => {
+test("set state functions", () => {
   const wrapper = mount(<Simulation />);
-
-  wrapper.instance().onComponentsMount(dataWithCandleSticks);
-
-  expect(wrapper.state()).toEqual({
-    chartMounted: false,
-    errorMounted: true,
-    tradesTableMounted: false,
-    resultJumbotron: false,
-    error: undefined,
-    candleSticks: dataWithCandleSticks.candleSticks,
-    chartMounted: true,
-    errorMounted: false,
-    resultJumbotron: true,
-    roi: dataWithCandleSticks.roi,
-    tradesTableMounted: true,
-    transformedCandleSticks: dataWithCandleSticks.candleSticks
-  });
-});
-//test("Render Error if error occurs", () => {});
-
-test("Set state functions", () => {
-  const wrapper = mount(<Simulation />);
-
   wrapper.instance().onErrorMounted();
   wrapper.instance().onChartMounted();
   wrapper.instance().onTradesTableMounted();
@@ -118,6 +247,7 @@ test("Set state functions", () => {
     .instance()
     .setTransformedCandleSticks(["transformed candleSticks placeholder one"]);
   wrapper.instance().setRoi(34.2);
+
   expect(wrapper.state()).toEqual({
     candleSticks: [
       { close: "19.20", date: "2013-01-01" },
@@ -140,6 +270,7 @@ test("Set state functions", () => {
     .instance()
     .setTransformedCandleSticks(["transformed candleSticks placeholder two"]);
   wrapper.instance().setRoi(45.2);
+
   expect(wrapper.state()).toEqual({
     candleSticks: [
       { close: "19.20", date: "2013-01-01" },
@@ -151,5 +282,34 @@ test("Set state functions", () => {
     roi: 45.2,
     tradesTableMounted: false,
     transformedCandleSticks: ["transformed candleSticks placeholder two"]
+  });
+});
+
+test("nonErrorComponentsMounted", () => {
+  const wrapper = mount(<Simulation />);
+
+  expect(wrapper.instance().nonErrorComponentsMounted()).toEqual(false);
+  wrapper.instance().onNonErrorComponentsMounted(); // notice this is method to set components, not evalute.
+  expect(wrapper.instance().nonErrorComponentsMounted()).toEqual(true);
+});
+
+test("onNonErrorComponentsMounted", () => {
+  const wrapper = mount(<Simulation />);
+  wrapper.instance().onNonErrorComponentsMounted();
+
+  expect(wrapper.state()).toEqual({
+    chartMounted: true,
+    errorMounted: false,
+    resultJumbotron: true,
+    tradesTableMounted: true
+  });
+
+  wrapper.instance().onNonErrorComponentsMounted();
+
+  expect(wrapper.state()).toEqual({
+    chartMounted: false,
+    errorMounted: false,
+    resultJumbotron: false,
+    tradesTableMounted: false
   });
 });

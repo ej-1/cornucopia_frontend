@@ -98,16 +98,16 @@ class Simulation extends Component {
     this.onResultJumbotron();
   };
 
-  handleFetchSimulation = (data, bla) => {
-    simulate(data).then(data => {
-      console.log("handleFetchSimulation TRIGGER AND SIMULATE");
-      bla();
+  handleFetchSimulation = (data, onComponentsMount) => {
+    return simulate(data).then(data => {
+      // NEED TO USE RETURN OTHERWISE => .then called on undefined.
+      onComponentsMount(data);
     });
     //.catch(error => console.error('something went wrong and it was not the API call', error))
   };
 
   fetchSimulation = data => {
-    this.handleFetchSimulation(data, simulate, this.onComponentsMount);
+    this.handleFetchSimulation(data, this.onComponentsMount);
   };
 
   render() {

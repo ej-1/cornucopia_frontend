@@ -1,6 +1,7 @@
 jest.mock("./transform-candlesticks-for-chart");
 jest.mock("../tables/trades-table");
 jest.mock("../charts/candle-stick-chart");
+jest.mock("../../services/api");
 
 import React from "react";
 import Simulation from "../simulation/simulation";
@@ -8,21 +9,33 @@ import renderer from "react-test-renderer";
 import { shallow, mount } from "enzyme";
 import moment from "moment";
 
-test("handleFetchSimulation calls onComponentsMount and runs simulation", () => {
-  //global.fetch = require("jest-fetch-mock");
+// USE MOCK ISNTEAD
+const candleSticks = [
+  { date: "2013-01-01", close: "19.20" },
+  { date: "2013-01-02", close: "21.40" }
+];
+// Always return the promise from the funciton being called otherwise .then is called on undefined.
+// https://stackoverflow.com/questions/24788171/typeerror-cannot-read-property-then-of-undefined
+
+// How to test promises
+// https://stackoverflow.com/questions/36400623/test-promise-chain-with-jest
+test("handleFetchSimulation calls onComponentsMount and runs simulation", async () => {
   const wrapper = mount(<Simulation />);
-  //const simulate = jest.fn();
-  const onComponentsMount = jest.fn();
+  const onComponentsMount = jest.fn(() => {
+    return Promise.resolve("value1");
+  });
 
-  //fetch.mockResponseOnce(JSON.stringify({ message: "YATTA!" }));
-  //wrapper.instance().handleFetchSimulation({ message: "YATTA!" });
-  //expect(wrapper.instance().fetchSimulation).toHaveBeenCalled();
+  expect.assertions(1);
 
-  wrapper
+  return wrapper
     .instance()
-    .handleFetchSimulation({ message: "YATTA!" }, onComponentsMount);
-
-  expect(onComponentsMount).toHaveBeenCalled();
+    .handleFetchSimulation({ strategy: "MACD" }, onComponentsMount)
+    .then(data => {
+      expect(onComponentsMount).toBeCalledWith([
+        { close: "19.20", date: "2013-01-01" },
+        { close: "21.40", date: "2013-01-02" }
+      ]);
+    });
 });
 
 test("onComponentsMount renders Error component if error is supplied", () => {

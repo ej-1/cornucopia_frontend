@@ -8,6 +8,8 @@ import CandleStickChart from "../charts/candle-stick-chart";
 import Error from "../errors/error";
 import ResultJumbotron from "./result-jumbotron";
 import { transformCandleSticksForChart } from "./transform-candlesticks-for-chart";
+import { transformCandleSticksReducer, simulationReducer } from "../../redux/reducers/reducers";
+import { store } from "../../redux/store/store"
 
 class Simulation extends Component {
   constructor(props) {
@@ -102,6 +104,13 @@ class Simulation extends Component {
     return simulate(data).then(data => {
       // NEED TO USE RETURN OTHERWISE => .then called on undefined.
       onComponentsMount(data);
+
+      store.dispatch({
+        type: 'RUN_SIMULATION',
+        form: data,
+        candleSticks: data.candleSticks
+      })
+
     });
     //.catch(error => console.error('something went wrong and it was not the API call', error))
   };

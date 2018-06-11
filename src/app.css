@@ -1,0 +1,123 @@
+body {
+  background-color: #f5f6f7;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.strategy-form-container {
+  display: inline-block;
+  vertical-align: top;
+  width: 18%;
+}
+
+.strategy-form {
+  margin: 20px;
+  padding: 30px;
+  background-color: #fff;
+}
+
+.strategy-form-amount {
+  margin-bottom: 15px;
+}
+
+.strategy-form .dropdown {
+  width: 100%;
+  margin-bottom: 7px;
+}
+
+.strategy-form .react-datepicker-wrapper {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.strategy-form .react-datepicker-wrapper .react-datepicker__input-container {
+  width: 100%;
+}
+
+.simulation .strategy-form .react-datepicker-wrapper input {
+  width: 100%;
+}
+
+.simulation .simulation-chart-and-table-container {
+  width: 82%;
+  display: inline-block;
+  margin-bottom: 50px; /*  reconsider using margin on strategy-form and simulation-chart-and-table-container instead */
+}
+
+/*  overriding react-stockchart CSS */
+.react-stockchart .react-stockchart {
+  position: relative !important;
+}
+
+.result-jumbotron-container {
+}
+
+.result-jumbotron {
+  margin: 20px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.trades-table-container {
+}
+
+.trades-table {
+  margin: 20px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.trades-table th {
+  text-align: center;
+}
+
+.trades-table td {
+  text-align: left;
+}
+
+.chart-container {
+}
+
+.chart {
+  margin: 20px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.home-info-boxes {
+  margin-bottom: 150px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

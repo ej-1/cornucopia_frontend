@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-
+import DropDown from "../forms/dropdown/dropdown";
 import "react-datepicker/dist/react-datepicker.css";
 
 class StrategyForm extends Component {
@@ -74,6 +74,7 @@ class StrategyForm extends Component {
           >
             <ControlLabel>Amount</ControlLabel>{" "}
             <FormControl
+              id="strategy-form-amount"
               className="strategy-form-amount"
               componentClass="input"
               type="number"
@@ -81,25 +82,21 @@ class StrategyForm extends Component {
               value={this.state.amount || 1000}
               onChange={this.handleChangeAmount}
             />
-            <DropdownButton
-              className="dropdown"
-              title={this.state.currencyPair || "Currency Pair"}
+            <DropDown
+              title="currency"
               onSelect={this.handleChangeCurrencyPair}
-            >
-              <MenuItem eventKey="BTC-BNB">BTC-BNB</MenuItem>
-              <MenuItem eventKey="BTC-USDT">BTC-USDT</MenuItem>
-            </DropdownButton>
-            <DropdownButton
-              className="dropdown"
-              title={this.state.strategy || "Strategy"}
+              options={["BTC-USDT", "BTC-BNB"]}
+            />
+            <DropDown
+              id="dropdown-strategy"
+              title="strategy"
               onSelect={this.handleChangeStrategy}
-            >
-              <MenuItem eventKey="MACD">MACD</MenuItem>
-              <MenuItem eventKey="EMA">EMA</MenuItem>
-            </DropdownButton>
+              options={["MACD", "EMA"]}
+            />
             <div>
               <ControlLabel>Trading Start date</ControlLabel>{" "}
               <DatePicker
+                id="datepicker-startdate"
                 selected={this.state.startDate || moment()}
                 onChange={this.handleChangeStartDate}
                 showTimeSelect
@@ -108,6 +105,7 @@ class StrategyForm extends Component {
               />
               <ControlLabel>Trading End date</ControlLabel>{" "}
               <DatePicker
+                id="datepicker-enddate"
                 selected={this.state.endDate || moment()}
                 onChange={this.handleChangeEndDate}
                 showTimeSelect

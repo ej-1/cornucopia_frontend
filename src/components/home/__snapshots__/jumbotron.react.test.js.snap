@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoBox gets rendered 1`] = `
+<div
+  className="col-md-12 col-xs-12"
+>
+  <div
+    className="jumbotron"
+  >
+    <h1>
+      <span>
+        Welcome to CornucopiaTrader!
+        <br />
+      </span>
+    </h1>
+    <p>
+      <span>
+        A trading service for simulation trading strategies based on 
+        <br />
+      </span>
+      <span>
+                     technical indicators using historical trade data.
+        <br />
+      </span>
+    </p>
+    <p>
+      <button
+        className="btn btn-primary"
+        disabled={false}
+        type="button"
+      >
+        Learn more
+      </button>
+    </p>
+  </div>
+  ;
+</div>
+`;

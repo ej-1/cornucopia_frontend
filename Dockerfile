@@ -1,14 +1,16 @@
 # Setup instructions
 # http://mherman.org/blog/2017/12/07/dockerizing-a-react-app/#.WwBPMVOFN-U
 
-# docker build -t <username>/dev-fedora:latest .
+# Build image
+# docker build -t <username>/<tag>:latest .
 
-#After building push the image
-# docker push <username>/dev-fedora:latest
+# After building push the image
+# docker push <username>/<tag>:latest
 
-# If ´docker login´ does not work. Delete this:
+# If ´docker login´ does not work. Delete this file:
 # /usr/local/bin/docker-credential-osxkeychain
 # https://github.com/docker/for-mac/issues/1540
+# Then try to login again
 # docker login -u ewj1000 cornucopia
 
 # base image

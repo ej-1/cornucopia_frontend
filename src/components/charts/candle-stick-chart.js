@@ -30,10 +30,9 @@ class CandleStickChart extends React.PureComponent {
   // I only need props, should I ignore state altogether? What is best practice?
 
   render() {
-    if (this.props.candleSticks) {
+    if (!this.props.candleSticks) {
       // check if to use null or undefined.
-      //return <div>Loading...</div>;
-      throw new Error('CHART CHRASED');
+      return <div>Loading...</div>;
     }
     return (
       <div className="chart-container">

@@ -1,0 +1,29 @@
+static getDerivedStateFromProps(props, state)
+render()
+
+getSnapshotBeforeUpdate(prevProps, prevState)       --> srolling, chatting etc.
+componentDidUpdate(prevProps, prevState, snapshot)
+componentDidCatch(error, info)                      --> error handling (ErrorBoundary)
+
+UNSAFE_componentWillMount()                         --> just before mounting, before render()l.
+componentDidMount()                                 --> Use this if you intend side-effect.
+UNSAFE_componentWillReceiveProps()                  --> Using this lifecycle method often leads to bugs and inconsistencies, and for that reason it is going to be deprecated in the future.
+                                                        Use componentDidUpdate lifecycle instead, if you need to perform a side effect (for example, data fetching or an animation) in response to a change in props
+                                                        For other use cases, follow the recommendations in this blog post about derived state.
+                                                        https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+
+getDerivedStateFromProps
+UNSAFE_componentWillUpdate()
+forceUpdate()
+
+
+setState() does not always immediately update the component.
+It may batch or defer the update until later. 
+This makes reading this.state right after calling setState() a potential pitfall.
+Instead, use componentDidUpdate or a setState callback (setState(updater, callback)),
+either of which are guaranteed to fire after the update has been applied. If you need to set the state based on the previous state, read about the updater argument below.
+
+
+
+ANTI-PATTERNS
+https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html

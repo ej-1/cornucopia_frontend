@@ -13,8 +13,8 @@ class Simulation extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      error: false,
       chartMounted: false,
-      errorMounted: false,
       tradesTableMounted: false,
       resultJumbotron: false
     };
@@ -22,7 +22,7 @@ class Simulation extends Component {
 
   onErrorMounted = () => {
     this.setState({
-      errorMounted: !this.state.errorMounted
+      error: !this.state.error
     });
   };
 
@@ -72,14 +72,14 @@ class Simulation extends Component {
         error: data.error
       });
 
-      if (!this.state.errorMounted) this.onErrorMounted();
+      if (!this.state.error) this.onErrorMounted();
       if (this.nonErrorComponentsMounted()) this.onNonErrorComponentsMounted();
     } else if (data.candleSticks) {
       this.setCandleSticks(data.candleSticks);
       this.setTransformedCandleSticks(data.candleSticks);
       this.setRoi(data.roi);
 
-      if (this.state.errorMounted) this.onErrorMounted();
+      if (this.state.error) this.onErrorMounted();
       if (!this.nonErrorComponentsMounted()) this.onNonErrorComponentsMounted();
     }
   };

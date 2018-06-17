@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-const Error = ({ message }) => <div className="error">{message}</div>;
+const Error = ({ error }) => {
+    if (!error) {
+      return null;
+    }
+
+    return (
+      <div className="error">{error.message}</div>
+    );
+  }
 
 Error.propTypes = {
   message: PropTypes.string.isRequired

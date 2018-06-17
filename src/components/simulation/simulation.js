@@ -14,34 +14,14 @@ class Simulation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartMounted: false,
-      errorMounted: false,
-      tradesTableMounted: false,
-      resultJumbotron: false
+      error: null,
+      mounted: false
     };
   }
 
-  onErrorMounted = () => {
+  onNonErrorMounted = () => {
     this.setState({
-      errorMounted: !this.state.errorMounted
-    });
-  };
-
-  onChartMounted = () => {
-    this.setState({
-      chartMounted: !this.state.chartMounted
-    });
-  };
-
-  onTradesTableMounted = () => {
-    this.setState({
-      tradesTableMounted: !this.state.tradesTableMounted
-    });
-  };
-
-  onResultJumbotron = () => {
-    this.setState({
-      resultJumbotron: !this.state.resultJumbotron
+      mounted: !this.state.mounted
     });
   };
 
@@ -51,60 +31,38 @@ class Simulation extends Component {
         this.setState({
           error: data.error
         });
-        if (!this.state.errorMounted) {
-          this.onErrorMounted();
-        }
-        if (
-          this.state.chartMounted &&
-          this.state.tradesTableMounted &&
-          this.state.resultJumbotron
-        ) {
-          this.onChartMounted();
-          this.onTradesTableMounted();
-          this.onResultJumbotron();
-        }
+        if (this.state.mounted)
+          this.onNonErrorMounted()
       } else {
         this.setState({
+          error: null,
           candleSticks: data.candleSticks,
           transformedCandleSticks: transformCandleSticksForChart(
             data.candleSticks
           ), // MIGHT BE A BAD IDEA. MAYBE IT SHOULD BE REVERSED FROM THE BEGINNING?
           roi: data.roi
         });
-        if (this.state.errorMounted) {
-          this.onErrorMounted();
-        }
-        if (
-          !this.state.chartMounted &&
-          !this.state.tradesTableMounted &&
-          !this.state.resultJumbotron
-        ) {
-          this.onChartMounted();
-          this.onTradesTableMounted();
-          this.onResultJumbotron();
-        }
+        if (!this.state.mounted)
+          this.onNonErrorMounted()
       }
     });
     //.catch(error => console.error('something went wrong and it was not the API call', error))
   };
 
   render() {
-    const error = this.state.error && (
-      <Error message={this.state.error.message} />
-    );
 
-    const tradesTable = this.state.tradesTableMounted && (
+    const tradesTable = this.state.mounted && (
       <TradesTable
         candleSticks={this.state.candleSticks}
         roi={this.state.roi}
       />
     );
 
-    const chart = this.state.chartMounted && (
+    const chart = this.state.mounted && (
       <CandleStickChart candleSticks={this.state.transformedCandleSticks} />
     );
 
-    const resultJumbotron = this.state.resultJumbotron && (
+    const resultJumbotron = this.state.mounted && (
       <ResultJumbotron roi={this.state.roi} />
     );
 
@@ -113,7 +71,7 @@ class Simulation extends Component {
         <StrategyForm runSimulation={this.fetchSimulation} />
         <div className="simulation-chart-and-table-container">
           <ErrorBoundary>
-            {error}
+            <Error error={this.state.error} />
             {chart}
             {resultJumbotron}
             {tradesTable}

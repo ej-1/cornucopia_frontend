@@ -30,7 +30,7 @@ class Simulation extends Component {
           error: null,
           mounted: true,
           candleSticks: data.candleSticks,
-          transformedCandleSticks: transformCandleSticksForChart(data.candleSticks), // MIGHT BE A BAD IDEA. MAYBE IT SHOULD BE REVERSED FROM THE BEGINNING?
+          transformedCandleSticks: transformCandleSticksForChart(data.candleSticks),
           roi: data.roi
         })
       }

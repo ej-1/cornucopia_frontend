@@ -9,7 +9,7 @@ import renderer from "react-test-renderer";
 import { shallow, mount } from "enzyme";
 import moment from "moment";
 
-// USE MOCK ISNTEAD
+// USE MOCK INSTEAD
 const dataWithCandleSticks = {
   candleSticks: [
     { date: "2013-01-01", close: "19.20" },
@@ -17,22 +17,6 @@ const dataWithCandleSticks = {
   ],
   roi: 23.45
 };
-
-/*
-//test original state
-this.state = {
-  error: null,
-  mounted: false
-};
-// test snapshot that nothin is visible
-
-// successful api -> setting appropriate state
-// render table, chart, jumbotron. not error.
-
-// unsuccessful api -> setting appropriate state
-// render error
-
-*/
 
 test("original state", () => {
   const wrapper = mount(<Simulation />);

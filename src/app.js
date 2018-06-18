@@ -19,7 +19,11 @@ class App extends Component {
               <ErrorBoundary>
                 <Route path="/" exact component={Home} />
                 <Route path="/simulate" exact component={Simulation} />
-                <Route path="/robotconfig" exact component={RobotConfiguration} />
+                <Route
+                  path="/robotconfig"
+                  exact
+                  component={RobotConfiguration}
+                />
               </ErrorBoundary>
             </Switch>
           </BrowserRouter>

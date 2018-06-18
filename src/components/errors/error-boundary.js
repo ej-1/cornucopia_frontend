@@ -6,20 +6,20 @@ class ErrorBoundary extends React.Component {
     super(props);
     this.state = { error: null, errorInfo: null };
   }
-  
+
   componentDidCatch(error, errorInfo) {
     this.setState({
       error: error,
       errorInfo: errorInfo
-    })
+    });
   }
-  
+
   render() {
     if (this.state.errorInfo) {
       return (
         <div>
           <h2>Something wen't very, very wrong.</h2>
-          <details style={{ whiteSpace: 'pre-wrap' }}>
+          <details style={{ whiteSpace: "pre-wrap" }}>
             {this.state.error && this.state.error.toString()}
             <br />
             {this.state.errorInfo.componentStack}
@@ -28,7 +28,7 @@ class ErrorBoundary extends React.Component {
       );
     }
     return this.props.children;
-  }  
+  }
 }
 
 export default ErrorBoundary;

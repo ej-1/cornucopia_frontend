@@ -32,11 +32,9 @@ test("fetchSimulation", () => {
             { close: "19.20", date: "2013-01-01" },
             { close: "21.40", date: "2013-01-02" }
           ],
-          chartMounted: true,
+          mounted: true,
           error: false,
-          resultJumbotron: true,
           roi: 23.45,
-          tradesTableMounted: true,
           transformedCandleSticks: dataWithCandleSticks.candleSticks // make this happen
         });
       }
@@ -99,18 +97,14 @@ describe("onComponentsMount", () => {
         const wrapper = mount(<Simulation />);
         const data = { error: "SOME ERROR" };
         wrapper.setState({
-          chartMounted: false,
-          error: false,
-          tradesTableMounted: false,
-          resultJumbotron: false
+          mounted: false,
+          error: false
         });
 
         wrapper.instance().onComponentsMount(data);
         expect(wrapper.state()).toEqual({
-          chartMounted: false,
+          mounted: false,
           //error: true,
-          tradesTableMounted: false,
-          resultJumbotron: false,
           error: "SOME ERROR"
         });
       });
@@ -121,18 +115,14 @@ describe("onComponentsMount", () => {
         const wrapper = mount(<Simulation />);
         const data = { error: "SOME ERROR" };
         wrapper.setState({
-          chartMounted: false,
+          mounted: false,
           error: true,
-          tradesTableMounted: false,
-          resultJumbotron: false
         });
 
         wrapper.instance().onComponentsMount(data);
         expect(wrapper.state()).toEqual({
-          chartMounted: false,
+          mounted: false,
           error: true,
-          tradesTableMounted: false,
-          resultJumbotron: false,
           error: "SOME ERROR"
         });
       });
@@ -143,18 +133,14 @@ describe("onComponentsMount", () => {
         const wrapper = mount(<Simulation />);
         const data = { error: "SOME ERROR" };
         wrapper.setState({
-          chartMounted: true,
-          error: false,
-          tradesTableMounted: true,
-          resultJumbotron: true
+          mounted: true,
+          error: false
         });
 
         wrapper.instance().onComponentsMount(data);
         expect(wrapper.state()).toEqual({
-          chartMounted: false,
+          mounted: false,
           error: true,
-          tradesTableMounted: false,
-          resultJumbotron: false,
           error: "SOME ERROR"
         });
       });
@@ -166,18 +152,14 @@ describe("onComponentsMount", () => {
       test("sets state to render Components and sets correct state", () => {
         const wrapper = mount(<Simulation />);
         wrapper.setState({
-          chartMounted: false,
           error: false,
-          tradesTableMounted: false,
-          resultJumbotron: false
+          mounted: true,
         });
 
         wrapper.instance().onComponentsMount(dataWithCandleSticks);
         expect(wrapper.state()).toEqual({
-          chartMounted: true,
+          mounted: true,
           error: false,
-          resultJumbotron: true,
-          tradesTableMounted: true,
           candleSticks: dataWithCandleSticks.candleSticks,
           roi: dataWithCandleSticks.roi,
           transformedCandleSticks: dataWithCandleSticks.candleSticks
@@ -189,18 +171,14 @@ describe("onComponentsMount", () => {
       test("sets state to render Components and sets correct state", () => {
         const wrapper = mount(<Simulation />);
         wrapper.setState({
-          chartMounted: false,
+          mounted: false,
           error: true,
-          tradesTableMounted: false,
-          resultJumbotron: false
         });
 
         wrapper.instance().onComponentsMount(dataWithCandleSticks);
         expect(wrapper.state()).toEqual({
-          chartMounted: true,
+          mounted: true,
           error: false,
-          resultJumbotron: true,
-          tradesTableMounted: true,
           candleSticks: dataWithCandleSticks.candleSticks,
           roi: dataWithCandleSticks.roi,
           transformedCandleSticks: dataWithCandleSticks.candleSticks
@@ -212,18 +190,14 @@ describe("onComponentsMount", () => {
       test("onComponentsMount sets state to render Components and sets correct state", () => {
         const wrapper = mount(<Simulation />);
         wrapper.setState({
-          chartMounted: false,
-          error: false,
-          tradesTableMounted: false,
-          resultJumbotron: false
+          mounted: true,
+          error: false
         });
 
         wrapper.instance().onComponentsMount(dataWithCandleSticks);
         expect(wrapper.state()).toEqual({
-          chartMounted: true,
+          mounted: true,
           error: false,
-          resultJumbotron: true,
-          tradesTableMounted: true,
           candleSticks: dataWithCandleSticks.candleSticks,
           roi: dataWithCandleSticks.roi,
           transformedCandleSticks: dataWithCandleSticks.candleSticks
@@ -235,10 +209,7 @@ describe("onComponentsMount", () => {
 
 test("set state functions", () => {
   const wrapper = mount(<Simulation />);
-  wrapper.instance().onErrorMounted();
-  wrapper.instance().onChartMounted();
-  wrapper.instance().onTradesTableMounted();
-  wrapper.instance().onResultJumbotron();
+  wrapper.instance().onMounted();
   wrapper.instance().setCandleSticks(dataWithCandleSticks.candleSticks);
   wrapper
     .instance()
@@ -250,18 +221,14 @@ test("set state functions", () => {
       { close: "19.20", date: "2013-01-01" },
       { close: "21.40", date: "2013-01-02" }
     ],
-    chartMounted: true,
-    error: true,
-    resultJumbotron: true,
+    mounted: true,
+    error: false,
     roi: 34.2,
-    tradesTableMounted: true,
     transformedCandleSticks: ["transformed candleSticks placeholder one"]
   });
 
   wrapper.instance().onErrorMounted();
-  wrapper.instance().onChartMounted();
-  wrapper.instance().onTradesTableMounted();
-  wrapper.instance().onResultJumbotron();
+  wrapper.instance().onMounted();
   wrapper.instance().setCandleSticks(dataWithCandleSticks.candleSticks);
   wrapper
     .instance()
@@ -273,11 +240,9 @@ test("set state functions", () => {
       { close: "19.20", date: "2013-01-01" },
       { close: "21.40", date: "2013-01-02" }
     ],
-    chartMounted: false,
-    error: false,
-    resultJumbotron: false,
+    mounted: false,
+    error: true,
     roi: 45.2,
-    tradesTableMounted: false,
     transformedCandleSticks: ["transformed candleSticks placeholder two"]
   });
 });
@@ -295,18 +260,14 @@ test("onNonErrorComponentsMounted", () => {
   wrapper.instance().onNonErrorComponentsMounted();
 
   expect(wrapper.state()).toEqual({
-    chartMounted: true,
+    mounted: true,
     error: false,
-    resultJumbotron: true,
-    tradesTableMounted: true
   });
 
   wrapper.instance().onNonErrorComponentsMounted();
 
   expect(wrapper.state()).toEqual({
-    chartMounted: false,
+    mounted: false,
     error: false,
-    resultJumbotron: false,
-    tradesTableMounted: false
   });
 });

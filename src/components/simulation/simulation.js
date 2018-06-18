@@ -14,9 +14,7 @@ class Simulation extends Component {
     super(props);
     this.state = {
       error: false,
-      chartMounted: false,
-      tradesTableMounted: false,
-      resultJumbotron: false
+      mounted: false
     };
   }
 
@@ -26,21 +24,9 @@ class Simulation extends Component {
     });
   };
 
-  onChartMounted = () => {
+  onMounted = () => {
     this.setState({
-      chartMounted: !this.state.chartMounted
-    });
-  };
-
-  onTradesTableMounted = () => {
-    this.setState({
-      tradesTableMounted: !this.state.tradesTableMounted
-    });
-  };
-
-  onResultJumbotron = () => {
-    this.setState({
-      resultJumbotron: !this.state.resultJumbotron
+      mounted: !this.state.mounted
     });
   };
 
@@ -86,16 +72,12 @@ class Simulation extends Component {
 
   nonErrorComponentsMounted = () => {
     return (
-      this.state.chartMounted &&
-      this.state.tradesTableMounted &&
-      this.state.resultJumbotron
+      this.state.mounted
     );
   };
 
   onNonErrorComponentsMounted = () => {
-    this.onChartMounted();
-    this.onTradesTableMounted();
-    this.onResultJumbotron();
+    this.onMounted();
   };
 
   handleFetchSimulation = (data, onComponentsMount) => {
@@ -115,18 +97,18 @@ class Simulation extends Component {
       <Error message={this.state.error.message} />
     );
 
-    const tradesTable = this.state.tradesTableMounted && (
+    const tradesTable = this.state.mounted && (
       <TradesTable
         candleSticks={this.state.candleSticks}
         roi={this.state.roi}
       />
     );
 
-    const chart = this.state.chartMounted && (
+    const chart = this.state.mounted && (
       <CandleStickChart candleSticks={this.state.transformedCandleSticks} />
     );
 
-    const resultJumbotron = this.state.resultJumbotron && (
+    const resultJumbotron = this.state.mounted && (
       <ResultJumbotron roi={this.state.roi} />
     );
 

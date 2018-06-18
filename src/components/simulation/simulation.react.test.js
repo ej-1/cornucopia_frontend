@@ -18,256 +18,73 @@ const dataWithCandleSticks = {
   roi: 23.45
 };
 
-// IS THIS TEST TESTING FOR TO MUCH, I ONLY NEED TO KNOW THAT TWO FUNCTIONS WHERE CALLED.
-test("fetchSimulation", () => {
+/*
+//test original state
+this.state = {
+  error: null,
+  mounted: false
+};
+// test snapshot that nothin is visible
+
+// successful api -> setting appropriate state
+// render table, chart, jumbotron. not error.
+
+// unsuccessful api -> setting appropriate state
+// render error
+
+*/
+
+test("original state", () => {
+  const wrapper = mount(<Simulation />);
+  expect(wrapper.state()).toEqual({
+    mounted: false,
+    error: null,
+  });
+});
+
+test("original snapshot", () => {
+  const component = renderer.create(<Simulation />);
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+// GUIDE TO ASYNC TESTING
+// https://gist.github.com/alfonsomunozpomer/de992a9710724eb248be3842029801c8
+test("successful api call", async () => {
+  const wrapper = mount(<Simulation />);
+
+  expect.assertions(1);
+
+  await wrapper
+  .instance()
+  .fetchSimulation({ strategy: "MACD" })
+
+  expect(wrapper.state()).toEqual({
+    candleSticks: [
+      { close: "19.20", date: "2013-01-01" },
+      { close: "21.40", date: "2013-01-02" }
+    ],
+    mounted: true,
+    error: null,
+    roi: 23.45,
+    transformedCandleSticks: dataWithCandleSticks.candleSticks
+  });
+});
+
+// PRODUCING UNHELPFUL ERROR THAT NEEDS JEST jest@23.0.0-alpha.7
+// https://github.com/facebook/jest/issues/3839
+test("unsuccessful api call", () => {
   const wrapper = mount(<Simulation />);
 
   return wrapper
     .instance()
-    .fetchSimulation({ strategy: "MACD" })
+    .fetchSimulation({ strategy: "SOME INVALID STRATEGY" })
     .then(data => {
       {
         expect(wrapper.state()).toEqual({
-          candleSticks: [
-            { close: "19.20", date: "2013-01-01" },
-            { close: "21.40", date: "2013-01-02" }
-          ],
-          mounted: true,
-          error: false,
-          roi: 23.45,
-          transformedCandleSticks: dataWithCandleSticks.candleSticks // make this happen
+          mounted: false,
+          error: { error: "Fetch failed. Something wen't wrong" }
         });
       }
     });
-});
-
-// Always return the promise from the funciton being called otherwise .then is called on undefined.
-// https://stackoverflow.com/questions/24788171/typeerror-cannot-read-property-then-of-undefined
-
-// How to test promises
-// https://stackoverflow.com/questions/36400623/test-promise-chain-with-jest
-describe("handleFetchSimulation", () => {
-  const wrapper = mount(<Simulation />);
-
-  test("makes successful API call and calls onComponentsMount", () => {
-    const wrapper = mount(<Simulation />);
-    const onComponentsMount = jest.fn(() => {
-      return Promise.resolve("value1");
-    });
-
-    expect.assertions(1);
-
-    return wrapper
-      .instance()
-      .handleFetchSimulation({ strategy: "MACD" }, onComponentsMount)
-      .then(data => {
-        expect(onComponentsMount).toBeCalledWith({
-          candleSticks: [
-            { date: "2013-01-01", close: "19.20" },
-            { date: "2013-01-02", close: "21.40" }
-          ],
-          roi: 23.45
-        });
-      });
-  });
-
-  test("makes successful API call, receives error", () => {
-    const wrapper = mount(<Simulation />);
-    const onComponentsMount = jest.fn(() => {
-      return Promise.resolve("value1");
-    });
-
-    expect.assertions(1);
-
-    return expect(
-      wrapper
-        .instance()
-        .handleFetchSimulation(
-          { strategy: "SOME INVALID STRATEGY" },
-          onComponentsMount
-        )
-    ).rejects.toEqual({ error: "Fetch failed. Something wen't wrong" });
-  });
-});
-
-describe("onComponentsMount", () => {
-  describe("error received", () => {
-    describe("no components set", () => {
-      test("set state to render Error component", () => {
-        const wrapper = mount(<Simulation />);
-        const data = { error: "SOME ERROR" };
-        wrapper.setState({
-          mounted: false,
-          error: false
-        });
-
-        wrapper.instance().onComponentsMount(data);
-        expect(wrapper.state()).toEqual({
-          mounted: false,
-          //error: true,
-          error: "SOME ERROR"
-        });
-      });
-    });
-
-    describe("Error component set", () => {
-      test("set state to render Error component", () => {
-        const wrapper = mount(<Simulation />);
-        const data = { error: "SOME ERROR" };
-        wrapper.setState({
-          mounted: false,
-          error: true,
-        });
-
-        wrapper.instance().onComponentsMount(data);
-        expect(wrapper.state()).toEqual({
-          mounted: false,
-          error: true,
-          error: "SOME ERROR"
-        });
-      });
-    });
-
-    describe("Non Error components set", () => {
-      test("set state to render Error component", () => {
-        const wrapper = mount(<Simulation />);
-        const data = { error: "SOME ERROR" };
-        wrapper.setState({
-          mounted: true,
-          error: false
-        });
-
-        wrapper.instance().onComponentsMount(data);
-        expect(wrapper.state()).toEqual({
-          mounted: false,
-          error: true,
-          error: "SOME ERROR"
-        });
-      });
-    });
-  });
-
-  describe("candleSticks and ROI received", () => {
-    describe("No components set", () => {
-      test("sets state to render Components and sets correct state", () => {
-        const wrapper = mount(<Simulation />);
-        wrapper.setState({
-          error: false,
-          mounted: true,
-        });
-
-        wrapper.instance().onComponentsMount(dataWithCandleSticks);
-        expect(wrapper.state()).toEqual({
-          mounted: true,
-          error: false,
-          candleSticks: dataWithCandleSticks.candleSticks,
-          roi: dataWithCandleSticks.roi,
-          transformedCandleSticks: dataWithCandleSticks.candleSticks
-        });
-      });
-    });
-
-    describe("Error component set", () => {
-      test("sets state to render Components and sets correct state", () => {
-        const wrapper = mount(<Simulation />);
-        wrapper.setState({
-          mounted: false,
-          error: true,
-        });
-
-        wrapper.instance().onComponentsMount(dataWithCandleSticks);
-        expect(wrapper.state()).toEqual({
-          mounted: true,
-          error: false,
-          candleSticks: dataWithCandleSticks.candleSticks,
-          roi: dataWithCandleSticks.roi,
-          transformedCandleSticks: dataWithCandleSticks.candleSticks
-        });
-      });
-    });
-
-    describe("Non Error components set ", () => {
-      test("onComponentsMount sets state to render Components and sets correct state", () => {
-        const wrapper = mount(<Simulation />);
-        wrapper.setState({
-          mounted: true,
-          error: false
-        });
-
-        wrapper.instance().onComponentsMount(dataWithCandleSticks);
-        expect(wrapper.state()).toEqual({
-          mounted: true,
-          error: false,
-          candleSticks: dataWithCandleSticks.candleSticks,
-          roi: dataWithCandleSticks.roi,
-          transformedCandleSticks: dataWithCandleSticks.candleSticks
-        });
-      });
-    });
-  });
-});
-
-test("set state functions", () => {
-  const wrapper = mount(<Simulation />);
-  wrapper.instance().onMounted();
-  wrapper.instance().setCandleSticks(dataWithCandleSticks.candleSticks);
-  wrapper
-    .instance()
-    .setTransformedCandleSticks(["transformed candleSticks placeholder one"]);
-  wrapper.instance().setRoi(34.2);
-
-  expect(wrapper.state()).toEqual({
-    candleSticks: [
-      { close: "19.20", date: "2013-01-01" },
-      { close: "21.40", date: "2013-01-02" }
-    ],
-    mounted: true,
-    error: false,
-    roi: 34.2,
-    transformedCandleSticks: ["transformed candleSticks placeholder one"]
-  });
-
-  wrapper.instance().onErrorMounted();
-  wrapper.instance().onMounted();
-  wrapper.instance().setCandleSticks(dataWithCandleSticks.candleSticks);
-  wrapper
-    .instance()
-    .setTransformedCandleSticks(["transformed candleSticks placeholder two"]);
-  wrapper.instance().setRoi(45.2);
-
-  expect(wrapper.state()).toEqual({
-    candleSticks: [
-      { close: "19.20", date: "2013-01-01" },
-      { close: "21.40", date: "2013-01-02" }
-    ],
-    mounted: false,
-    error: true,
-    roi: 45.2,
-    transformedCandleSticks: ["transformed candleSticks placeholder two"]
-  });
-});
-
-test("nonErrorComponentsMounted", () => {
-  const wrapper = mount(<Simulation />);
-
-  expect(wrapper.instance().nonErrorComponentsMounted()).toEqual(false);
-  wrapper.instance().onNonErrorComponentsMounted(); // notice this is method to set components, not evalute.
-  expect(wrapper.instance().nonErrorComponentsMounted()).toEqual(true);
-});
-
-test("onNonErrorComponentsMounted", () => {
-  const wrapper = mount(<Simulation />);
-  wrapper.instance().onNonErrorComponentsMounted();
-
-  expect(wrapper.state()).toEqual({
-    mounted: true,
-    error: false,
-  });
-
-  wrapper.instance().onNonErrorComponentsMounted();
-
-  expect(wrapper.state()).toEqual({
-    mounted: false,
-    error: false,
-  });
 });

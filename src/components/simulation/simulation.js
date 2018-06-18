@@ -8,8 +8,11 @@ import CandleStickChart from "../charts/candle-stick-chart";
 import Error from "../errors/error";
 import ResultJumbotron from "./result-jumbotron";
 import { transformCandleSticksForChart } from "./transform-candlesticks-for-chart";
+import { rootReducer } from "../../redux/reducers/reducers";
+import { store } from "../../redux/store/store";
 
 class Simulation extends Component {
+  /*
   constructor(props) {
     super(props);
     this.state = {
@@ -17,6 +20,7 @@ class Simulation extends Component {
       mounted: false
     };
   }
+*/
 
   fetchSimulation = data => {
     return simulate(data).then(data => {
@@ -26,13 +30,26 @@ class Simulation extends Component {
           mounted: false
         });
       } else if (data.candleSticks) {
+        store.dispatch({
+          type: "RUN_SIMULATION",
+          //form: action.form,
+          candleSticks: data.candleSticks
+        });
+        console.log("REDUX STATE============", store.getState());
+        console.log(
+          "SIMULATIONREDUCER ONLY============",
+          store.getState().simulationReducer.candleSticks
+        );
+
         this.setState({
           error: null,
           mounted: true,
           candleSticks: data.candleSticks,
-          transformedCandleSticks: transformCandleSticksForChart(data.candleSticks),
+          transformedCandleSticks: transformCandleSticksForChart(
+            data.candleSticks
+          ),
           roi: data.roi
-        })
+        });
       }
     });
   };

@@ -1,6 +1,6 @@
 let index = 0;
 
-import ACTION_TYPES from "../actionTypes"
+import ACTION_TYPES from "../action-types";
 
 export const runSimulationAction = formOuput => {
   return {

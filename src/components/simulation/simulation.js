@@ -12,6 +12,7 @@ import { rootReducer } from "../../redux/reducers/reducers";
 import { store } from "../../redux/store/store";
 
 class Simulation extends Component {
+  /*
   constructor(props) {
     super(props);
     this.state = {
@@ -19,6 +20,7 @@ class Simulation extends Component {
       mounted: false
     };
   }
+*/
 
   fetchSimulation = data => {
     return simulate(data).then(data => {
@@ -33,6 +35,12 @@ class Simulation extends Component {
           //form: action.form,
           candleSticks: data.candleSticks
         });
+        console.log("REDUX STATE============", store.getState());
+        console.log(
+          "SIMULATIONREDUCER ONLY============",
+          store.getState().simulationReducer.candleSticks
+        );
+
         this.setState({
           error: null,
           mounted: true,

@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { ACTION_TYPES } from "../actions/actionTypes";
+import { ACTION_TYPES } from "../actions/action-types";
 let index = 0;
 let initialState = {};
 

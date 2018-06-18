@@ -10,7 +10,6 @@ import {
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import DropDown from "../forms/dropdown/dropdown";
-
 import "react-datepicker/dist/react-datepicker.css";
 
 class StrategyForm extends Component {

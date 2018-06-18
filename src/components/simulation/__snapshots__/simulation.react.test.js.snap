@@ -1,0 +1,957 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`original snapshot 1`] = `
+<div
+  className="simulation"
+>
+  <div
+    className="strategy-form-container"
+  >
+    <div
+      className="strategy-form"
+    >
+      <h4>
+        Simulate strategy
+      </h4>
+      <form
+        id="strategy-form"
+        name="strategy-form"
+        onSubmit={[Function]}
+      >
+        <label
+          className="control-label"
+          htmlFor={undefined}
+        >
+          Amount
+        </label>
+         
+        <input
+          className="strategy-form-amount form-control"
+          id="strategy-form-amount"
+          onChange={[Function]}
+          placeholder={undefined}
+          type="number"
+          value={1000}
+        />
+        <div
+          className="dropdown btn-group"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown dropdown-toggle btn btn-default"
+            disabled={false}
+            id="dropdown-currency"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            type="button"
+          >
+            Choose currency
+             
+            <span
+              className="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="dropdown-currency"
+            className="dropdown-menu"
+            role="menu"
+          >
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                BTC-USDT
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                BTC-BNB
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="dropdown btn-group"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown dropdown-toggle btn btn-default"
+            disabled={false}
+            id="dropdown-strategy"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            type="button"
+          >
+            Choose strategy
+             
+            <span
+              className="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="dropdown-strategy"
+            className="dropdown-menu"
+            role="menu"
+          >
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                MACD
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                EMA
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <label
+            className="control-label"
+            htmlFor={undefined}
+          >
+            Trading Start date
+          </label>
+           
+          <div>
+            <div
+              className="react-datepicker-wrapper"
+            >
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoComplete={undefined}
+                  autoFocus={undefined}
+                  className=""
+                  disabled={false}
+                  id="datepicker-startdate"
+                  name={undefined}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder={undefined}
+                  readOnly={undefined}
+                  required={undefined}
+                  tabIndex={undefined}
+                  title={undefined}
+                  type="text"
+                  value="2018/06/18 03:00"
+                />
+              </div>
+            </div>
+          </div>
+          <label
+            className="control-label"
+            htmlFor={undefined}
+          >
+            Trading End date
+          </label>
+           
+          <div>
+            <div
+              className="react-datepicker-wrapper"
+            >
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoComplete={undefined}
+                  autoFocus={undefined}
+                  className=""
+                  disabled={false}
+                  id="datepicker-enddate"
+                  name={undefined}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder={undefined}
+                  readOnly={undefined}
+                  required={undefined}
+                  tabIndex={undefined}
+                  title={undefined}
+                  type="text"
+                  value="2018/06/18 03:00"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          className="btn btn-warning btn-block"
+          disabled={false}
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  <div
+    className="simulation-chart-and-table-container"
+  />
+</div>
+`;
+
+exports[`original snapshot 2`] = `
+<div
+  className="simulation"
+>
+  <div
+    className="strategy-form-container"
+  >
+    <div
+      className="strategy-form"
+    >
+      <h4>
+        Simulate strategy
+      </h4>
+      <form
+        id="strategy-form"
+        name="strategy-form"
+        onSubmit={[Function]}
+      >
+        <label
+          className="control-label"
+          htmlFor={undefined}
+        >
+          Amount
+        </label>
+         
+        <input
+          className="strategy-form-amount form-control"
+          id="strategy-form-amount"
+          onChange={[Function]}
+          placeholder={undefined}
+          type="number"
+          value={1000}
+        />
+        <div
+          className="dropdown btn-group"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown dropdown-toggle btn btn-default"
+            disabled={false}
+            id="dropdown-currency"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            type="button"
+          >
+            Choose currency
+             
+            <span
+              className="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="dropdown-currency"
+            className="dropdown-menu"
+            role="menu"
+          >
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                BTC-USDT
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                BTC-BNB
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="dropdown btn-group"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown dropdown-toggle btn btn-default"
+            disabled={false}
+            id="dropdown-strategy"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            type="button"
+          >
+            Choose strategy
+             
+            <span
+              className="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="dropdown-strategy"
+            className="dropdown-menu"
+            role="menu"
+          >
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                MACD
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                EMA
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <label
+            className="control-label"
+            htmlFor={undefined}
+          >
+            Trading Start date
+          </label>
+           
+          <div>
+            <div
+              className="react-datepicker-wrapper"
+            >
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoComplete={undefined}
+                  autoFocus={undefined}
+                  className=""
+                  disabled={false}
+                  id="datepicker-startdate"
+                  name={undefined}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder={undefined}
+                  readOnly={undefined}
+                  required={undefined}
+                  tabIndex={undefined}
+                  title={undefined}
+                  type="text"
+                  value="2018/06/18 03:00"
+                />
+              </div>
+            </div>
+          </div>
+          <label
+            className="control-label"
+            htmlFor={undefined}
+          >
+            Trading End date
+          </label>
+           
+          <div>
+            <div
+              className="react-datepicker-wrapper"
+            >
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoComplete={undefined}
+                  autoFocus={undefined}
+                  className=""
+                  disabled={false}
+                  id="datepicker-enddate"
+                  name={undefined}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder={undefined}
+                  readOnly={undefined}
+                  required={undefined}
+                  tabIndex={undefined}
+                  title={undefined}
+                  type="text"
+                  value="2018/06/18 03:00"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          className="btn btn-warning btn-block"
+          disabled={false}
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  <div
+    className="simulation-chart-and-table-container"
+  />
+</div>
+`;
+
+exports[`successful api call 1`] = `
+<div
+  className="simulation"
+>
+  <div
+    className="strategy-form-container"
+  >
+    <div
+      className="strategy-form"
+    >
+      <h4>
+        Simulate strategy
+      </h4>
+      <form
+        id="strategy-form"
+        name="strategy-form"
+        onSubmit={[Function]}
+      >
+        <label
+          className="control-label"
+          htmlFor={undefined}
+        >
+          Amount
+        </label>
+         
+        <input
+          className="strategy-form-amount form-control"
+          id="strategy-form-amount"
+          onChange={[Function]}
+          placeholder={undefined}
+          type="number"
+          value={1000}
+        />
+        <div
+          className="dropdown btn-group"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown dropdown-toggle btn btn-default"
+            disabled={false}
+            id="dropdown-currency"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            type="button"
+          >
+            Choose currency
+             
+            <span
+              className="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="dropdown-currency"
+            className="dropdown-menu"
+            role="menu"
+          >
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                BTC-USDT
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                BTC-BNB
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="dropdown btn-group"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown dropdown-toggle btn btn-default"
+            disabled={false}
+            id="dropdown-strategy"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            type="button"
+          >
+            Choose strategy
+             
+            <span
+              className="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="dropdown-strategy"
+            className="dropdown-menu"
+            role="menu"
+          >
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                MACD
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                EMA
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <label
+            className="control-label"
+            htmlFor={undefined}
+          >
+            Trading Start date
+          </label>
+           
+          <div>
+            <div
+              className="react-datepicker-wrapper"
+            >
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoComplete={undefined}
+                  autoFocus={undefined}
+                  className=""
+                  disabled={false}
+                  id="datepicker-startdate"
+                  name={undefined}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder={undefined}
+                  readOnly={undefined}
+                  required={undefined}
+                  tabIndex={undefined}
+                  title={undefined}
+                  type="text"
+                  value="2018/06/18 03:00"
+                />
+              </div>
+            </div>
+          </div>
+          <label
+            className="control-label"
+            htmlFor={undefined}
+          >
+            Trading End date
+          </label>
+           
+          <div>
+            <div
+              className="react-datepicker-wrapper"
+            >
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoComplete={undefined}
+                  autoFocus={undefined}
+                  className=""
+                  disabled={false}
+                  id="datepicker-enddate"
+                  name={undefined}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder={undefined}
+                  readOnly={undefined}
+                  required={undefined}
+                  tabIndex={undefined}
+                  title={undefined}
+                  type="text"
+                  value="2018/06/18 03:00"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          className="btn btn-warning btn-block"
+          disabled={false}
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  <div
+    className="simulation-chart-and-table-container"
+  />
+</div>
+`;
+
+exports[`unsuccessful api call 1`] = `
+<div
+  className="simulation"
+>
+  <div
+    className="strategy-form-container"
+  >
+    <div
+      className="strategy-form"
+    >
+      <h4>
+        Simulate strategy
+      </h4>
+      <form
+        id="strategy-form"
+        name="strategy-form"
+        onSubmit={[Function]}
+      >
+        <label
+          className="control-label"
+          htmlFor={undefined}
+        >
+          Amount
+        </label>
+         
+        <input
+          className="strategy-form-amount form-control"
+          id="strategy-form-amount"
+          onChange={[Function]}
+          placeholder={undefined}
+          type="number"
+          value={1000}
+        />
+        <div
+          className="dropdown btn-group"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown dropdown-toggle btn btn-default"
+            disabled={false}
+            id="dropdown-currency"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            type="button"
+          >
+            Choose currency
+             
+            <span
+              className="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="dropdown-currency"
+            className="dropdown-menu"
+            role="menu"
+          >
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                BTC-USDT
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                BTC-BNB
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="dropdown btn-group"
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown dropdown-toggle btn btn-default"
+            disabled={false}
+            id="dropdown-strategy"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="button"
+            type="button"
+          >
+            Choose strategy
+             
+            <span
+              className="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="dropdown-strategy"
+            className="dropdown-menu"
+            role="menu"
+          >
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                MACD
+              </a>
+            </li>
+            <li
+              className=""
+              role="presentation"
+              style={undefined}
+            >
+              <a
+                href="#"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="menuitem"
+                tabIndex="-1"
+              >
+                EMA
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <label
+            className="control-label"
+            htmlFor={undefined}
+          >
+            Trading Start date
+          </label>
+           
+          <div>
+            <div
+              className="react-datepicker-wrapper"
+            >
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoComplete={undefined}
+                  autoFocus={undefined}
+                  className=""
+                  disabled={false}
+                  id="datepicker-startdate"
+                  name={undefined}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder={undefined}
+                  readOnly={undefined}
+                  required={undefined}
+                  tabIndex={undefined}
+                  title={undefined}
+                  type="text"
+                  value="2018/06/18 03:00"
+                />
+              </div>
+            </div>
+          </div>
+          <label
+            className="control-label"
+            htmlFor={undefined}
+          >
+            Trading End date
+          </label>
+           
+          <div>
+            <div
+              className="react-datepicker-wrapper"
+            >
+              <div
+                className="react-datepicker__input-container"
+              >
+                <input
+                  autoComplete={undefined}
+                  autoFocus={undefined}
+                  className=""
+                  disabled={false}
+                  id="datepicker-enddate"
+                  name={undefined}
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder={undefined}
+                  readOnly={undefined}
+                  required={undefined}
+                  tabIndex={undefined}
+                  title={undefined}
+                  type="text"
+                  value="2018/06/18 03:00"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          className="btn btn-warning btn-block"
+          disabled={false}
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+  <div
+    className="simulation-chart-and-table-container"
+  />
+</div>
+`;

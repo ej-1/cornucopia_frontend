@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 import { ACTION_TYPES } from "../actions/actionTypes";
 let index = 0;
 let initialState = {};
@@ -39,5 +39,3 @@ const rootReducer = combineReducers({
 });
 
 export { rootReducer };
-
-

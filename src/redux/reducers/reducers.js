@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import { ACTION_TYPES } from "../actions/actionTypes";
+import ACTION_TYPES from "../actions/actionTypes";
 let index = 0;
 let initialState = {};
-
+/*
 const simulationReducer = (state = [], action) => {
   //console.log("simulationReducer triggered", "STATE:", state, "ACTION:", action);
   switch (action.type) {
@@ -29,6 +29,37 @@ const transformCandleSticksReducer = (state = [], action) => {
       return state;
   }
 };
+
+const fetchSimulation = () => {
+  console.log("REDUCER TRIGGERED ./reducers");
+};
+
+const requestSimulation = data => {
+  return {
+    type: "REQUEST_SIMULATION",
+    data
+  };
+};
+
+const receiveSimulation = (data, json) => {
+  return {
+    type: "RECEIVE_SIMULATION",
+    data,
+    candleSticks: json.candleSticks,
+    transformedCandleSticks: transformCandleSticksForChart(data.candleSticks),
+    receivedAt: Date.now()
+  };
+};
+
+const receiveError = (data, json) => {
+  return {
+    type: "RECEIVE_ERROR",
+    data,
+    error: json.error,
+    receivedAt: Date.now()
+  };
+};
+*/
 
 // Note passing middleware as the third argument requires redux@>=3.1.0
 

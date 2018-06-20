@@ -14,16 +14,8 @@ let initialState = {
 };
 
 function simulationReducer(state = initialState, action) {
-  console.log(
-    "simulationReducer triggered",
-    "STATE:",
-    state,
-    "ACTION:",
-    action
-  );
   switch (action.type) {
     case ACTION_TYPES.RECEIVE_ERROR:
-      console.log("REDUCER RECEIVE_ERROR");
       return Object.assign({}, state, {
         index: index++,
         isFetching: true,
@@ -40,7 +32,6 @@ function simulationReducer(state = initialState, action) {
         didInvalidate: false
       });
     case ACTION_TYPES.RECEIVE_SIMULATION:
-      console.log("./reducers/simulation RECEIVE_SIMULATION");
       return Object.assign({}, state, {
         index: index++,
         isFetching: false,

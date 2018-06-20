@@ -10,7 +10,6 @@ export const requestSimulation = data => {
 };
 
 export const receiveSimulation = (data, json) => {
-  console.log("action RECEIVE_SIMULATION json", json);
   return {
     type: ACTION_TYPES.RECEIVE_SIMULATION,
     data,
@@ -32,12 +31,9 @@ export const receiveError = (data, json) => {
 
 // Thunk action creator!
 export const fetchSimulation = data => {
-  console.log("fetchSimulation ../actions/index.js----->", data);
-
   return function(dispatch) {
     dispatch(requestSimulation(data));
     return simulate(data).then(response => {
-      console.log("API RESPONSE", response);
       if (response.error) {
         dispatch(receiveError(data, response));
       } else if (response.candleSticks) {

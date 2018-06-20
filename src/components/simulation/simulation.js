@@ -17,9 +17,6 @@ const Simulation = ({
     <StrategyForm runSimulation={fetchSimulation} />
     <div className="simulation-chart-and-table-container">
       {error && <Error message={error.message} />}
-      {console.log("SIMULATION COMPONENT -- is there an error?", error)}
-      {console.log("SIMULATION COMPONENT -- is there a roi?", roi)}
-
       {transformedCandleSticks && (
         <CandleStickChart candleSticks={transformedCandleSticks} />
       )}

@@ -1,12 +1,8 @@
 import { connect } from "react-redux";
 import Simulation from "../../components/simulation/simulation";
 import { simulate } from "../../services/api";
-//import { fetchSimulation } from "../reducers/simulation";
-//simulationReducer
 import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
 import { fetchSimulation } from "../actions";
-import ACTION_TYPES from "../actions/actionTypes";
-//import fetchSimulation from "../actions/actionCreators";
 import TradesTable from "../../components/tables/trades-table";
 
 const getComponents = (candleSticks, error, mounted) => {
@@ -29,29 +25,14 @@ const getComponents = (candleSticks, error, mounted) => {
 };
 
 const mapStateToProps = state => (
-  console.log("mapStateToProps CURRENT STATE IS ===> ", state),
-  state.simulation
-  /*
-  {
-    mounted: false,
-    error: null
-  }
-  */
+  console.log("mapStateToProps CURRENT STATE IS ===> ", state), state.simulation
 );
-//todos: getVisibleTodos(state.todos, state.visibilityFilter)
 
 const mapDispatchToProps = dispatch => {
   return {
-    //submitForm: data => {
-    //  dispatch(submitSimulationForm(data))
-    //},
     fetchSimulation: data => {
-      console.log("CONTAINER----->", data), dispatch(fetchSimulation(data)); // simulation here comes from /reducers/index.js,
-      //which combines reducers into a single rootReducer.
+      console.log("CONTAINER----->", data), dispatch(fetchSimulation(data));
     }
-    //onTodoClick: id => {
-    //  dispatch(toggleTodo(id))
-    //}
   };
 };
 

@@ -5,7 +5,6 @@ import Layout from "./layout";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/routes/home";
 import Simulation from "./redux/containers/simulation";
-//import Simulation from "./components/simulation/simulation";
 import RobotConfiguration from "./components/routes/robot-configuration";
 import ErrorBoundary from "./components/errors/error-boundary";
 // https://daveceddia.com/create-react-app-express-backend/

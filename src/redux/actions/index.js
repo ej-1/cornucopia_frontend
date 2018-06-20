@@ -1,32 +1,10 @@
 import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
 import { simulate } from "../../services/api";
-
-/*
-const fetchy = data => {
-  return simulate(data).then(data => {
-    if (data.error) {
-      this.setState({
-        error: data.error,
-        mounted: false
-      });
-    } else if (data.candleSticks) {
-      this.setState({
-        error: null,
-        mounted: true,
-        candleSticks: data.candleSticks,
-        transformedCandleSticks: transformCandleSticksForChart(
-          data.candleSticks
-        ),
-        roi: data.roi
-      });
-    }
-  });
-};
-*/
+import { ACTION_TYPES } from "../actions/actionTypes";
 
 export const requestSimulation = data => {
   return {
-    type: "REQUEST_SIMULATION",
+    type: ACTION_TYPES.REQUEST_SIMULATION,
     data
   };
 };
@@ -34,7 +12,7 @@ export const requestSimulation = data => {
 export const receiveSimulation = (data, json) => {
   console.log("action RECEIVE_SIMULATION json", json);
   return {
-    type: "RECEIVE_SIMULATION",
+    type: ACTION_TYPES.RECEIVE_SIMULATION,
     data,
     candleSticks: json.candleSticks,
     transformedCandleSticks: transformCandleSticksForChart(json.candleSticks),
@@ -45,21 +23,12 @@ export const receiveSimulation = (data, json) => {
 
 export const receiveError = (data, json) => {
   return {
-    type: "RECEIVE_ERROR",
+    type: ACTION_TYPES.RECEIVE_ERROR,
     data,
     error: json.error,
     receivedAt: Date.now()
   };
 };
-/*
-export const fetchSimulation = data => (
-  
-  {
-    type: "FETCH_SIMULATION",
-    data
-  }
-);
-*/
 
 // Meet our first thunk action creator!
 // Though its insides are different, you would use it just like any other action creator:
@@ -86,12 +55,6 @@ export const fetchSimulation = data => {
     return simulate(data).then(response => {
       console.log("API RESPONSE", response);
       if (response.error) {
-        /*
-            this.setState({
-              error: response.error,
-              mounted: false
-            });
-            */
         dispatch(receiveError(data, response));
       } else if (response.candleSticks) {
         dispatch(receiveSimulation(data, response));

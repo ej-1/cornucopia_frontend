@@ -1,3 +1,8 @@
+
+- Good explanation of redux actions and reducers.
+- https://gist.github.com/kof/9ead8b0899e2e1306311
+--------------
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

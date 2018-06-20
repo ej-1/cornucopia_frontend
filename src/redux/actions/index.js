@@ -2,17 +2,18 @@ import { transformCandleSticksForChart } from "../../components/simulation/trans
 import { simulate } from "../../services/api";
 import { ACTION_TYPES } from "../actions/actionTypes";
 
-export const requestSimulation = data => {
+export const requestSimulation = formData => {
+  console.log("ACTION MAN", formData);
   return {
     type: ACTION_TYPES.REQUEST_SIMULATION,
-    data
+    formData
   };
 };
 
-export const receiveSimulation = (data, json) => {
+export const receiveSimulation = (formData, json) => {
   return {
     type: ACTION_TYPES.RECEIVE_SIMULATION,
-    data,
+    formData: formData,
     candleSticks: json.candleSticks,
     transformedCandleSticks: transformCandleSticksForChart(json.candleSticks),
     roi: json.roi,
@@ -20,24 +21,24 @@ export const receiveSimulation = (data, json) => {
   };
 };
 
-export const receiveError = (data, json) => {
+export const receiveError = (formData, json) => {
   return {
     type: ACTION_TYPES.RECEIVE_ERROR,
-    data,
+    formData: formData,
     error: json.error,
     receivedAt: Date.now()
   };
 };
 
 // Thunk action creator!
-export const fetchSimulation = data => {
+export const fetchSimulation = formData => {
   return function(dispatch) {
-    dispatch(requestSimulation(data));
-    return simulate(data).then(response => {
+    dispatch(requestSimulation(formData));
+    return simulate(formData).then(response => {
       if (response.error) {
-        dispatch(receiveError(data, response));
+        dispatch(receiveError(formData, response));
       } else if (response.candleSticks) {
-        dispatch(receiveSimulation(data, response));
+        dispatch(receiveSimulation(formData, response));
       }
     });
   };

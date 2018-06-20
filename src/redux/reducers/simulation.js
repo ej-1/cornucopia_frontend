@@ -17,8 +17,9 @@ function simulationReducer(state = initialState, action) {
   switch (action.type) {
     case ACTION_TYPES.RECEIVE_ERROR:
       return Object.assign({}, state, {
+        formData: action.formData, // Form data should be handled by another reducer for strategy-form.
         index: index++,
-        isFetching: true,
+        isFetching: true, // use this for spinner.
         didInvalidate: false,
         error: action.error,
         candleSticks: null,
@@ -27,12 +28,14 @@ function simulationReducer(state = initialState, action) {
       });
     case ACTION_TYPES.REQUEST_SIMULATION:
       return Object.assign({}, state, {
+        formData: action.formData,
         index: index++,
         isFetching: true,
         didInvalidate: false
       });
     case ACTION_TYPES.RECEIVE_SIMULATION:
       return Object.assign({}, state, {
+        formData: action.formData,
         index: index++,
         isFetching: false,
         didInvalidate: false,

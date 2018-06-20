@@ -6,7 +6,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./components/routes/home";
 import Simulation from "./components/simulation/simulation";
 import RobotConfiguration from "./components/routes/robot-configuration";
-import ErrorBoundary from "./components/errors/error-boundary";
 // https://daveceddia.com/create-react-app-express-backend/
 
 class App extends Component {
@@ -16,15 +15,9 @@ class App extends Component {
         <Layout>
           <BrowserRouter>
             <Switch>
-              <ErrorBoundary>
-                <Route path="/" exact component={Home} />
-                <Route path="/simulate" exact component={Simulation} />
-                <Route
-                  path="/robotconfig"
-                  exact
-                  component={RobotConfiguration}
-                />
-              </ErrorBoundary>
+              <Route path="/" exact component={Home} />
+              <Route path="/simulate" exact component={Simulation} />
+              <Route path="/robotconfig" exact component={RobotConfiguration} />
             </Switch>
           </BrowserRouter>
         </Layout>

@@ -2,13 +2,11 @@ import { connect } from "react-redux";
 import Simulation from "../../components/simulation/simulation";
 import { fetchSimulation } from "../actions";
 
-const mapStateToProps = state => (
-);
+const mapStateToProps = state => state.simulation;
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSimulation: data => {
-    }
+    fetchSimulation: data => {}
   };
 };
 

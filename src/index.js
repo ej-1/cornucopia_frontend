@@ -13,8 +13,6 @@ const logger = createLogger({
   // ...options
 });
 
-const initialState = {};
-
 const store = createStore(
   rootReducer,
   applyMiddleware(thunk), // lets us dispatch() functions

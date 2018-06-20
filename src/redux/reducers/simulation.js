@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import { ACTION_TYPES } from "../actions/actionTypes";
 import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
 

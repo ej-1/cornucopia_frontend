@@ -1,13 +1,10 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 
-import { simulate } from "../../services/api";
 import TradesTable from "../tables/trades-table";
 import StrategyForm from "../forms/strategy-form";
 import CandleStickChart from "../charts/candle-stick-chart";
 import Error from "../errors/error";
 import ResultJumbotron from "./result-jumbotron";
-import { transformCandleSticksForChart } from "./transform-candlesticks-for-chart";
 
 const Simulation = ({
   error,

@@ -5,25 +5,6 @@ import { transformCandleSticksForChart } from "../../components/simulation/trans
 import { fetchSimulation } from "../actions";
 import TradesTable from "../../components/tables/trades-table";
 
-const getComponents = (candleSticks, error, mounted) => {
-  if (mounted) {
-    // MAYBE USE THIS INSTEAD -- SimulationMounted.SHOW_ALL:
-    return {
-      candleSticks: candleSticks,
-      transformedCandleSticks: transformCandleSticksForChart(candleSticks)
-    };
-  } else if (error) {
-    return {
-      error: error
-    };
-  } else {
-    return {
-      mounted: false,
-      error: null
-    };
-  }
-};
-
 const mapStateToProps = state => (
   console.log("mapStateToProps CURRENT STATE IS ===> ", state), state.simulation
 );

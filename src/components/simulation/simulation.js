@@ -10,7 +10,6 @@ import ResultJumbotron from "./result-jumbotron";
 import { transformCandleSticksForChart } from "./transform-candlesticks-for-chart";
 
 const Simulation = ({
-  mounted,
   error,
   candleSticks,
   transformedCandleSticks,
@@ -22,12 +21,13 @@ const Simulation = ({
     <div className="simulation-chart-and-table-container">
       {error && <Error message={error.message} />}
       {console.log("SIMULATION COMPONENT -- is there an error?", error)}
-      {console.log("SIMULATION COMPONENT -- is there a mounted?", mounted)}
       {console.log("SIMULATION COMPONENT -- is there a roi?", roi)}
 
-      {mounted && <CandleStickChart candleSticks={transformedCandleSticks} />}
-      {mounted && <ResultJumbotron roi={roi} />}
-      {mounted && <TradesTable candleSticks={candleSticks} roi={roi} />}
+      {transformedCandleSticks && (
+        <CandleStickChart candleSticks={transformedCandleSticks} />
+      )}
+      {roi && <ResultJumbotron roi={roi} />}
+      {candleSticks && <TradesTable candleSticks={candleSticks} />}
     </div>
   </div>
 );

@@ -9,7 +9,7 @@ function simulationReducer(
   state = {
     isFetching: false,
     didInvalidate: false,
-    candleSticks: [] // WHY DO I NEED TO SET INITIAL STATE?
+    candleSticks: null //[] // WHY DO I NEED TO SET INITIAL STATE?
   },
   action
 ) {
@@ -31,7 +31,6 @@ function simulationReducer(
         isFetching: true,
         didInvalidate: false, // REMOVE didInvalidate
         error: action.error,
-        mounted: false,
         candleSticks: null,
         transformedCandleSticks: null,
         roi: null
@@ -49,7 +48,6 @@ function simulationReducer(
         isFetching: false,
         didInvalidate: false,
         error: null,
-        mounted: true, // SHOULD PROBABLY NOT NEED TO USE MOUNTED ANYMORE. USE transformedCandleSticks AS CONDITINOAL TO RENDER CHART.
         candleSticks: action.candleSticks,
         transformedCandleSticks: transformCandleSticksForChart(
           action.candleSticks

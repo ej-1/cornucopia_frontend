@@ -3,16 +3,18 @@ import { ACTION_TYPES } from "../actions/actionTypes";
 import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
 
 let index = 0;
-let initialState = {}; // REMOVE THIS??
 
-function simulationReducer(
-  state = {
-    isFetching: false,
-    didInvalidate: false,
-    candleSticks: null //[] // WHY DO I NEED TO SET INITIAL STATE?
-  },
-  action
-) {
+let initialState = {
+  isFetching: false,
+  didInvalidate: false, // didInvalidate so you can later toggle it when the data is stale. https://redux.js.org/advanced/async-actions
+  index: index++,
+  error: null,
+  candleSticks: null,
+  transformedCandleSticks: null,
+  roi: null
+};
+
+function simulationReducer(state = initialState, action) {
   console.log(
     "simulationReducer triggered",
     "STATE:",
@@ -21,27 +23,24 @@ function simulationReducer(
     action
   );
   switch (action.type) {
-    // MOVE THESE ACTIONS SOMEWHERE ELSE LIKE IN CONVOSE.
-
-    // SHOULD I UPDATE STATE ATTRIBUTES BY SETTING THE TO false DIRECTLY. REDUCER ARE SUPPOSED TO BE PURE FUNCTIONS.
-    case "RECEIVE_ERROR":
+    case ACTION_TYPES.RECEIVE_ERROR:
       console.log("REDUCER RECEIVE_ERROR");
       return Object.assign({}, state, {
         index: index++,
         isFetching: true,
-        didInvalidate: false, // REMOVE didInvalidate
+        didInvalidate: false,
         error: action.error,
         candleSticks: null,
         transformedCandleSticks: null,
         roi: null
       });
-    case "REQUEST_SIMULATION":
+    case ACTION_TYPES.REQUEST_SIMULATION:
       return Object.assign({}, state, {
         index: index++,
         isFetching: true,
         didInvalidate: false
       });
-    case "RECEIVE_SIMULATION":
+    case ACTION_TYPES.RECEIVE_SIMULATION:
       console.log("./reducers/simulation RECEIVE_SIMULATION");
       return Object.assign({}, state, {
         index: index++,

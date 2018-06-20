@@ -6,7 +6,9 @@ const mapStateToProps = state => state.simulation;
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSimulation: data => {}
+    fetchSimulation: data => {
+      dispatch(fetchSimulation(data));
+    }
   };
 };
 

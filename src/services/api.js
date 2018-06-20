@@ -1,4 +1,7 @@
-//import fetch from "cross-fetch";
+// cross-fetch is recommended to use, since most browsers does not support
+// fetch natively.
+// https://redux.js.org/advanced/async-actions
+import fetch from "cross-fetch";
 
 const post = (path, body) =>
   fetch(`http://localhost:3001${path}`, {

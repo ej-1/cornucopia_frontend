@@ -3,8 +3,11 @@
 // https://redux.js.org/advanced/async-actions
 import fetch from "cross-fetch";
 
+const API_URL_PROD = "https://cornucopia-backend.herokuapp.com";
+const API_URL_DEV = "https://localhost:3001";
+
 const post = (path, body) =>
-  fetch(`http://localhost:3001${path}`, {
+  fetch(`${API_URL_PROD}${path}`, {
     headers: {
       "content-type": "application/json"
     },

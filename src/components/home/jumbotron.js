@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Jumbotron as BootstrapJumbotron, Button, Col } from "react-bootstrap";
 
-const Jumbotron = ({ header, text, buttonStyle, buttonText }) => (
+const Jumbotron = ({ header, text, buttonLink, buttonStyle, buttonText }) => (
   <Col xs={12} md={12}>
     <BootstrapJumbotron>
       <h1>
@@ -25,7 +25,9 @@ const Jumbotron = ({ header, text, buttonStyle, buttonText }) => (
         })}
       </p>
       <p>
-        <Button bsStyle={buttonStyle}>{buttonText}</Button>
+        <Button href={buttonLink} bsStyle={buttonStyle}>
+          {buttonText}
+        </Button>
       </p>
     </BootstrapJumbotron>;
   </Col>

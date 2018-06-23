@@ -8,18 +8,18 @@ class Home extends Component {
   jumbotronProps = {
     header: "Welcome to CornucopiaTrader!",
     text:
-      "A trading service for simulation trading strategies based on \n \
-            technical indicators using historical trade data.",
-    buttonLink: "/",
+      "A trading platform for simulating cryptocurrency \n\
+      trading strategies based on technical indicators",
+    buttonLink: "/simulate",
     buttonStyle: "primary",
-    buttonText: "Learn more"
+    buttonText: "Try it out"
   };
 
   firstInfoBoxProps = {
     header: "Run trade simulations",
     text:
-      "With CornucopiaTrader you simulate trading based on technical \n \
-            indicators on historical exchange data from Binance.",
+      "With CornucopiaTrader you can simulate trading strategies based on \n \
+      technical indicators using historical exchange data from Binance.",
     buttonLink: "/simulate",
     buttonStyle: "primary",
     buttonText: "Simulate now"
@@ -30,7 +30,7 @@ class Home extends Component {
     text: "Coming soon...",
     buttonLink: "/robotconfig",
     buttonStyle: "primary",
-    buttonText: "Simulate now"
+    buttonText: "Setup now"
   };
 
   render() {

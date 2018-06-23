@@ -35,15 +35,13 @@ export const receiveError = (formData, json) => {
 };
 
 // Thunk action creator!
-export const fetchSimulation = formData => {
-  return function(dispatch) {
-    dispatch(requestSimulation(formData));
-    return simulate(formData).then(response => {
-      if (response.error) {
-        dispatch(receiveError(formData, response));
-      } else if (response.candleSticks) {
-        dispatch(receiveSimulation(formData, response));
-      }
-    });
-  };
+export const fetchSimulation = formData => dispatch => {
+  dispatch(requestSimulation(formData));
+  return simulate(formData).then(response => {
+    if (response.error) {
+      dispatch(receiveError(formData, response));
+    } else if (response.candleSticks) {
+      dispatch(receiveSimulation(formData, response));
+    }
+  });
 };

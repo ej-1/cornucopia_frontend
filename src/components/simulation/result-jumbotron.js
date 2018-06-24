@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import style from "../simulation/result-jumbotron.css";
 
 const ResultJumbotron = ({ roi }) => (
   <div className="result-jumbotron-container">

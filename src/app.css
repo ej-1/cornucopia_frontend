@@ -1,7 +1,3 @@
-body {
-  background-color: #f5f6f7;
-}
-
 .App {
   text-align: center;
 }
@@ -26,59 +22,6 @@ body {
   font-size: large;
 }
 
-.simulation .simulation-chart-and-table-container {
-  width: 82%;
-  display: inline-block;
-  margin-bottom: 50px; /*  reconsider using margin on strategy-form and simulation-chart-and-table-container instead */
-}
-
-/*  overriding react-stockchart CSS */
-.react-stockchart .react-stockchart {
-  position: relative !important;
-}
-
-.result-jumbotron-container {
-}
-
-.result-jumbotron {
-  margin: 20px;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 5px;
-}
-
-.trades-table-container {
-}
-
-.trades-table {
-  margin: 20px;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 5px;
-}
-
-.trades-table th {
-  text-align: center;
-}
-
-.trades-table td {
-  text-align: left;
-}
-
-.chart-container {
-}
-
-.chart {
-  margin: 20px;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 5px;
-}
-
-.home-info-boxes {
-  margin-bottom: 150px;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -86,13 +29,4 @@ body {
   to {
     transform: rotate(360deg);
   }
-}
-
-/* fix for hour picker in datepicker that are displaced to the right*/
-.react-datepicker__time-container
-  .react-datepicker__time
-  .react-datepicker__time-box
-  ul.react-datepicker__time-list
-  li.react-datepicker__time-list-item {
-  margin-left: -80px;
 }

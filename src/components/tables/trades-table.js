@@ -4,6 +4,7 @@ import { Table } from "react-bootstrap";
 
 import TradesRowBuy from "../tables/trades-row-buy";
 import TradesRowSell from "../tables/trades-row-sell";
+import style from "../tables/trades-table.css";
 
 class TradesTable extends React.PureComponent {
   render() {

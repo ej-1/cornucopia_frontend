@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Chart from "../charts/chart";
 //import { getData } from "../charts/utils";
+import Style from "../charts/candle-stick-chart.css";
 
 import { TypeChooser } from "react-stockcharts/lib/helper";
 

@@ -11,6 +11,7 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 import DropDown from "../forms/dropdown/dropdown";
 import "react-datepicker/dist/react-datepicker.css";
+import Style from "../forms/strategy-form.css";
 
 class StrategyForm extends Component {
   constructor(props) {
@@ -74,8 +75,8 @@ class StrategyForm extends Component {
           >
             <ControlLabel>Amount</ControlLabel>{" "}
             <FormControl
-              id="strategy-form-amount"
-              className="strategy-form-amount"
+              id="amount"
+              className="amount"
               componentClass="input"
               type="number"
               placeholder={this.state.amount}

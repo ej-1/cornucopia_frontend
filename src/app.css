@@ -26,40 +26,6 @@ body {
   font-size: large;
 }
 
-.strategy-form-container {
-  display: inline-block;
-  vertical-align: top;
-  width: 18%;
-}
-
-.strategy-form {
-  margin: 20px;
-  padding: 30px;
-  background-color: #fff;
-}
-
-.strategy-form-amount {
-  margin-bottom: 15px;
-}
-
-.strategy-form .dropdown {
-  width: 100%;
-  margin-bottom: 7px;
-}
-
-.strategy-form .react-datepicker-wrapper {
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-.strategy-form .react-datepicker-wrapper .react-datepicker__input-container {
-  width: 100%;
-}
-
-.simulation .strategy-form .react-datepicker-wrapper input {
-  width: 100%;
-}
-
 .simulation .simulation-chart-and-table-container {
   width: 82%;
   display: inline-block;

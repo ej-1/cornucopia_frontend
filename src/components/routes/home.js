@@ -3,6 +3,7 @@ import { Image, Grid, Col, Row } from "react-bootstrap";
 
 import Jumbotron from "../home/jumbotron";
 import InfoBox from "../home/info-box";
+import Style from "../routes/home.css";
 
 class Home extends Component {
   jumbotronProps = {

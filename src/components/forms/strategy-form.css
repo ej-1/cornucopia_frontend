@@ -27,3 +27,12 @@
 .strategy-form .react-datepicker-wrapper .react-datepicker__input-container {
   width: 100%;
 }
+
+/* fix for hour picker in datepicker that are displaced to the right*/
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item {
+  margin-left: -80px;
+}

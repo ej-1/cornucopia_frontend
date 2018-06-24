@@ -20,7 +20,7 @@ const Simulation = ({
       {transformedCandleSticks && (
         <CandleStickChart candleSticks={transformedCandleSticks} />
       )}
-      {roi && <ResultJumbotron roi={roi} />}
+      {roi != null && <ResultJumbotron roi={roi} />}
       {candleSticks && <TradesTable candleSticks={candleSticks} />}
     </div>
   </div>

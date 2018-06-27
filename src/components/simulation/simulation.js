@@ -11,7 +11,7 @@ const Simulation = ({
   error,
   candleSticks,
   transformedCandleSticks,
-  roi,
+  transformedRoi,
   fetchSimulation
 }) => (
   <div className="simulation">
@@ -21,7 +21,7 @@ const Simulation = ({
       {transformedCandleSticks && (
         <CandleStickChart candleSticks={transformedCandleSticks} />
       )}
-      {roi != null && <ResultJumbotron roi={roi} />}
+      {transformedRoi != null && <ResultJumbotron roi={transformedRoi} />}
       {candleSticks && <TradesTable candleSticks={candleSticks} />}
     </div>
   </div>

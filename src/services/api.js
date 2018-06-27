@@ -13,7 +13,7 @@ const post = (path, body) =>
     cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "omit", // include, same-origin, *omit
     headers: {
-      "user-agent": "CornucopiaTrader/1.0",
+      //"user-agent": "CornucopiaTrader/1.0",
       // CHECK AGAIN !!!!!!!!
       "content-type": "application/json" // ; charset=utf-8
     },

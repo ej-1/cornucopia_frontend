@@ -7,7 +7,7 @@ if (browser_url.includes("localhost")) {
 } else if (browser_url.includes("cornucopia-frontend.herokuapp.com")) {
   backendHost = "https://cornucopia-backend.herokuapp.com";
 } else {
-  backendHost = process.env.REACT_APP_BACKEND_HOST || "http://localhost:8080";
+  backendHost = process.env.REACT_APP_BACKEND_HOST || "http://localhost:3001";
 }
 
 export const API_ROOT = `${backendHost}`; // /api/${apiVersion}`;

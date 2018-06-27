@@ -52,3 +52,14 @@ Use deployment create-react-app-buildpack deployment on Heroku. https://github.c
 
 - Good explanation of redux actions and reducers.
 - https://gist.github.com/kof/9ead8b0899e2e1306311
+
+# Troubleshooting for testing
+
+If you get `Error: Error watching file for changes: EMFILE`.
+
+If you're using MAC OS make sure watchman is installed by running `brew install watchman`.
+Installing jest-cli can solve the issue, but create following error `TypeError: environment.teardown is not a function?`.
+
+In the event you get `TypeError: environment.teardown is not a function?` see this useful Stackoverflow link.
+
+https://stackoverflow.com/questions/50696201/how-to-solve-typeerror-environment-teardown-is-not-a-function

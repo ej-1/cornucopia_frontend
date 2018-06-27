@@ -79,13 +79,13 @@ class StrategyForm extends Component {
             <DropDown
               title="currency"
               onSelect={this.handleChangeCurrencyPair}
-              options={["BTC-USDT", "BTC-BNB"]}
+              options={["BTC-USDT"]}
             />
             <DropDown
               id="dropdown-strategy"
               title="strategy"
               onSelect={this.handleChangeStrategy}
-              options={["MACD", "EMA"]}
+              options={["MACD"]}
             />
             <div>
               <ControlLabel>Trading Start date</ControlLabel>{" "}

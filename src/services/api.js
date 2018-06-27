@@ -6,9 +6,6 @@ import { API_ROOT } from "../api-config";
 
 const post = (path, body) =>
   fetch(`${API_ROOT}${path}`, {
-    headers: {
-      "content-type": "application/json"
-    },
     body: JSON.stringify(body),
     cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "omit", // include, same-origin, *omit

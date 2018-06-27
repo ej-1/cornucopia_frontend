@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import { PageHeader, Col, Button } from "react-bootstrap";
+import React, { Fragment } from "react";
+import { PageHeader, Button } from "react-bootstrap";
 
 const InfoBox = ({ header, text, buttonLink, buttonStyle, buttonText }) => (
   <Fragment>

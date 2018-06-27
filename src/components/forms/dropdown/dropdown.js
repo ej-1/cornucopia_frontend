@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { MenuItem, DropdownButton } from "react-bootstrap";
 
 import "react-datepicker/dist/react-datepicker.css";

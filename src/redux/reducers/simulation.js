@@ -1,6 +1,5 @@
 import { ACTION_TYPES } from "../actions/actionTypes";
 import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
-import { transformRoi } from "../../helpers/transform-roi";
 
 let index = 0;
 

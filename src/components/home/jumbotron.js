@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Jumbotron as BootstrapJumbotron, Button, Col } from "react-bootstrap";
+import React from "react";
+import { Jumbotron as BootstrapJumbotron, Button } from "react-bootstrap";
 
 const Jumbotron = ({ header, text, buttonLink, buttonStyle, buttonText }) => (
   <BootstrapJumbotron>

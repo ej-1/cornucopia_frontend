@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { PageHeader, Col, Button } from "react-bootstrap";
 
 const InfoBox = ({ header, text, buttonLink, buttonStyle, buttonText }) => (
-  <Col xs={12} md={6}>
+  <Fragment>
     <PageHeader>
       {header.split("\n").map((item, key) => {
         return (
@@ -26,7 +26,7 @@ const InfoBox = ({ header, text, buttonLink, buttonStyle, buttonText }) => (
     <Button href={buttonLink} bsStyle={buttonStyle}>
       {buttonText}
     </Button>
-  </Col>
+  </Fragment>
 );
 
 export default InfoBox;

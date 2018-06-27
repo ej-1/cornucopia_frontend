@@ -2,10 +2,10 @@
 // fetch natively.
 // https://redux.js.org/advanced/async-actions
 import fetch from "cross-fetch";
-import getApiUrl from "../envconfig";
+import { API_ROOT } from "../api-config";
 
 const post = (path, body) =>
-  fetch(`${getApiUrl()}${path}`, {
+  fetch(`${API_ROOT}${path}`, {
     headers: {
       "content-type": "application/json"
     },

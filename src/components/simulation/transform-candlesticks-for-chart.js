@@ -13,39 +13,38 @@ const smaVolume50 = (volumes, i) => {
 };
 
 const transformCandleSticksForChart = candleSticks => {
-  let transformedCandleSticks = [];
   const volumes = volumesFrom(candleSticks);
-
+  let transformedCandleSticks = [];
   candleSticks.forEach((candleStick, i) => {
-    transformedCandleSticks.push({
-      AbsoluteChange: undefined,
-      close: parseFloat(candleStick.close),
-      date: new Date(candleStick.date),
-      dividend: undefined,
-      ema12: candleStick.ema12,
-      ema26: candleStick.ema26,
-      high: parseFloat(candleStick.high),
-      low: parseFloat(candleStick.low),
-      MACD: {
-        MACD: candleStick.MACD,
-        signal:
-          candleStick.MACD === undefined ? undefined : candleStick.MACD.signal,
-        divergence:
-          candleStick.MACD === undefined
-            ? undefined
-            : candleStick.MACD.histogram
-      },
-      open: parseFloat(candleStick.open),
-      percentChange: undefined,
-      smaVolume50: smaVolume50(volumes, i),
-      split: undefined,
-      volume: parseFloat(candleStick.volumeFrom)
-      // "volumeto" means the volume in the currency that is being traded
-      // "volumefrom" means the volume in the base currency that things are traded into.
-      // https://bitcointalk.org/index.php?topic=1995403.0
-    });
+    transformedCandleSticks.push(transformCandleStick(candleStick, volumes, i));
   });
   return transformedCandleSticks;
 };
+
+const transformCandleStick = (candleStick, volumes, i) => ({
+  AbsoluteChange: undefined,
+  close: parseFloat(candleStick.close),
+  date: new Date(candleStick.date),
+  dividend: undefined,
+  ema12: candleStick.ema12,
+  ema26: candleStick.ema26,
+  high: parseFloat(candleStick.high),
+  low: parseFloat(candleStick.low),
+  MACD: {
+    MACD: candleStick.MACD,
+    signal:
+      candleStick.MACD === undefined ? undefined : candleStick.MACD.signal,
+    divergence:
+      candleStick.MACD === undefined ? undefined : candleStick.MACD.histogram
+  },
+  open: parseFloat(candleStick.open),
+  percentChange: undefined,
+  smaVolume50: smaVolume50(volumes, i),
+  split: undefined,
+  volume: parseFloat(candleStick.volumeFrom)
+  // "volumeto" means the volume in the currency that is being traded
+  // "volumefrom" means the volume in the base currency that things are traded into.
+  // https://bitcointalk.org/index.php?topic=1995403.0
+});
 
 export { transformCandleSticksForChart, smaVolume50, volumesFrom };

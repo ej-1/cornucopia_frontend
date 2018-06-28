@@ -1,5 +1,5 @@
 import { ACTION_TYPES } from "../actions/actionTypes";
-import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
+import { transformCandleSticksForChart } from "../../helpers/transform-candlesticks-for-chart";
 
 let index = 0;
 

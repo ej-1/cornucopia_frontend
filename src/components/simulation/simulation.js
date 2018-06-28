@@ -5,13 +5,13 @@ import StrategyForm from "../forms/strategy-form";
 import CandleStickChart from "../charts/candle-stick-chart";
 import Error from "../errors/error";
 import ResultJumbotron from "./result-jumbotron";
-import style from "../simulation/simulation.css";
+import "../simulation/simulation.css";
 
 const Simulation = ({
   error,
   candleSticks,
   transformedCandleSticks,
-  roi,
+  transformedRoi,
   fetchSimulation
 }) => (
   <div className="simulation">
@@ -21,7 +21,7 @@ const Simulation = ({
       {transformedCandleSticks && (
         <CandleStickChart candleSticks={transformedCandleSticks} />
       )}
-      {roi != null && <ResultJumbotron roi={roi} />}
+      {transformedRoi != null && <ResultJumbotron roi={transformedRoi} />}
       {candleSticks && <TradesTable candleSticks={candleSticks} />}
     </div>
   </div>

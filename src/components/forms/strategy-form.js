@@ -1,17 +1,10 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import {
-  MenuItem,
-  DropdownButton,
-  FormControl,
-  ControlLabel,
-  Button
-} from "react-bootstrap";
+import { FormControl, ControlLabel, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import DropDown from "../forms/dropdown/dropdown";
 import "react-datepicker/dist/react-datepicker.css";
-import Style from "../forms/strategy-form.css";
+import "../forms/strategy-form.css";
 
 class StrategyForm extends Component {
   constructor(props) {
@@ -86,13 +79,13 @@ class StrategyForm extends Component {
             <DropDown
               title="currency"
               onSelect={this.handleChangeCurrencyPair}
-              options={["BTC-USDT", "BTC-BNB"]}
+              options={["BTC-USDT"]}
             />
             <DropDown
               id="dropdown-strategy"
               title="strategy"
               onSelect={this.handleChangeStrategy}
-              options={["MACD", "EMA"]}
+              options={["MACD"]}
             />
             <div>
               <ControlLabel>Trading Start date</ControlLabel>{" "}

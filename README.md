@@ -52,3 +52,35 @@ Use deployment create-react-app-buildpack deployment on Heroku. https://github.c
 
 - Good explanation of redux actions and reducers.
 - https://gist.github.com/kof/9ead8b0899e2e1306311
+
+# Troubleshooting for testing
+
+If you get `Error: Error watching file for changes: EMFILE`.
+
+If you're using MAC OS make sure watchman is installed by running `brew install watchman`.
+Also make sure to run `brew link watchman`.
+Installing jest-cli can solve the issue, but create following error `TypeError: environment.teardown is not a function?`.
+
+In the event you get `TypeError: environment.teardown is not a function?` see this useful Stackoverflow link.
+
+https://stackoverflow.com/questions/50696201/how-to-solve-typeerror-environment-teardown-is-not-a-function
+
+Make sure `enzyme` and `enzyme-adapter-react-16` is installed.
+
+```RUNS src/components/forms/dropdown/dropdown.react.test.js
+RUNS src/components/home/info-box.react.test.js
+
+Test Suites: 0 of 6 total
+Tests: 0 total
+Snapshots: 0 total
+Time: 0s2018-06-27 22:21 node[49647](FSEvents.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-22)
+2018-06-27 22:21 node[49647](FSEvents.framework) FSEventStreamStart: register_with_server: ERROR: f2d_register_rpc() => (null) (-22)
+events.js:183
+throw er; // Unhandled 'error' event
+^
+
+Error: Error watching file for changes: EMFILE
+at \_errnoException (util.js:1022:11)
+at FSEvent.FSWatcher.\_handle.onchange (fs.js:1351:9)
+npm ERR! Test failed. See above for more details.
+```

@@ -1,11 +1,27 @@
+const volumesFrom = candleSticks => {
+  return candleSticks.map(candleStick => candleStick.volumeFrom);
+};
+
+const smaVolume50 = (volumes, i) => {
+  let days = 50;
+  if (i >= days - 1) {
+    let volume50days = volumes.slice(0, days);
+    return volume50days.reduce((a, b) => a + b, 0) / days;
+  } else {
+    return 0;
+  }
+};
+
 const transformCandleSticksForChart = candleSticks => {
   let transformedCandleSticks = [];
-  candleSticks.forEach(candleStick => {
+  const volumes = volumesFrom(candleSticks);
+
+  candleSticks.forEach((candleStick, i) => {
     transformedCandleSticks.push({
       AbsoluteChange: undefined,
-      close: parseFloat(candleStick.close), // MAYBE PUT PARSEFLOAT EVERYWHERE TO BE SURE.
+      close: parseFloat(candleStick.close),
       date: new Date(candleStick.date),
-      dividend: "",
+      dividend: undefined,
       ema12: candleStick.ema12,
       ema26: candleStick.ema26,
       high: parseFloat(candleStick.high),
@@ -21,9 +37,9 @@ const transformCandleSticksForChart = candleSticks => {
       },
       open: parseFloat(candleStick.open),
       percentChange: undefined,
-      smaVolume50: parseFloat(candleStick.volumeTo), // THIS IS WRONG candleStick.smaVolume50 NEED TO CALCULATE THIS smaVolume50.
-      split: "",
-      volume: parseFloat(candleStick.volumeFrom) // PROBABLY NOT RIGHT VOLUME. DOUBLE-CHECK.
+      smaVolume50: smaVolume50(volumes, i),
+      split: undefined,
+      volume: parseFloat(candleStick.volumeFrom)
       // "volumeto" means the volume in the currency that is being traded
       // "volumefrom" means the volume in the base currency that things are traded into.
       // https://bitcointalk.org/index.php?topic=1995403.0

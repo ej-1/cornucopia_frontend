@@ -48,4 +48,4 @@ const transformCandleSticksForChart = candleSticks => {
   return transformedCandleSticks;
 };
 
-export { transformCandleSticksForChart };
+export { transformCandleSticksForChart, smaVolume50, volumesFrom };

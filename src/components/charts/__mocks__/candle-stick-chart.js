@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 
-class CandleStickChart extends React.PureComponent {
+class CandleStickChart extends Component {
   render() {
-    return (
-      <div className="chart-container">
-        <div className="chart" />
-      </div>
-    );
+    return <div className="chart" />;
   }
 }
 

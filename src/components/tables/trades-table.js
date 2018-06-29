@@ -27,23 +27,21 @@ class TradesTable extends React.PureComponent {
 
     return (
       <div className="trades-table-container">
-        <div className="trades-table">
-          <Table responsive>
-            <thead>
-              <tr>
-                <th>Trade Type</th>
-                <th>Date</th>
-                <th>Symbol</th>
-                <th>Buy Price per Unit</th>
-                <th>Sell Price per Unit</th>
-                <th>Price Gain / Loss</th>
-                <th>Price Gain Percent</th>
-                <th>Total Net Profit</th>
-              </tr>
-            </thead>
-            <tbody>{rows}</tbody>
-          </Table>
-        </div>
+        <Table responsive>
+          <thead>
+            <tr>
+              <th>Trade Type</th>
+              <th>Date</th>
+              <th>Symbol</th>
+              <th>Buy Price per Unit</th>
+              <th>Sell Price per Unit</th>
+              <th>Price Gain / Loss</th>
+              <th>Price Gain Percent</th>
+              <th>Total Net Profit</th>
+            </tr>
+          </thead>
+          <tbody>{rows}</tbody>
+        </Table>
       </div>
     );
   }

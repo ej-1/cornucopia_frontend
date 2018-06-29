@@ -1,4 +1,4 @@
-.simulation .simulation-chart-and-table-container {
+.simulation-container .simulation-chart-and-table-container {
   width: 82%;
   display: inline-block;
   margin-bottom: 50px; /*  reconsider using margin on strategy-form and simulation-chart-and-table-container instead */

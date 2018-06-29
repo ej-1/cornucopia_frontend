@@ -14,7 +14,7 @@ const Simulation = ({
   roi,
   fetchSimulation
 }) => (
-  <div className="simulation">
+  <div className="simulation-container">
     <StrategyForm runSimulation={fetchSimulation} />
     <div className="simulation-chart-and-table-container">
       {error && <Error message={error.message} />}

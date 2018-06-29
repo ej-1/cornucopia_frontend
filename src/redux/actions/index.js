@@ -1,4 +1,5 @@
 import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
+import { dateConverter } from "../../helpers/date-converter";
 import { simulate } from "../../services/api";
 import { ACTION_TYPES } from "../actions/actionTypes";
 

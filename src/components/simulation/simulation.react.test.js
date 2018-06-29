@@ -22,7 +22,7 @@ test("original state", () => {
   const wrapper = mount(<Simulation />);
   expect(wrapper.state()).toEqual({
     mounted: false,
-    error: null
+    error: null,
   });
 });
 
@@ -39,7 +39,9 @@ test("successful api call", async () => {
 
   expect.assertions(1);
 
-  await wrapper.instance().fetchSimulation({ strategy: "MACD" });
+  await wrapper
+  .instance()
+  .fetchSimulation({ strategy: "MACD" })
 
   expect(wrapper.state()).toEqual({
     candleSticks: [

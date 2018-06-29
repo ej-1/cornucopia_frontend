@@ -6,7 +6,7 @@ import TradesRowBuy from "../tables/trades-row-buy";
 import TradesRowSell from "../tables/trades-row-sell";
 import "../tables/trades-table.css";
 
-class TradesTable extends React.PureComponent {
+class TradesTable extends Component {
   render() {
     const rows = [];
     // Pass ID as key instead of index after adding database.

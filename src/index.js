@@ -15,9 +15,8 @@ const logger = createLogger({
 
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunk), // lets us dispatch() functions
+  applyMiddleware(thunk, logger) // lets us dispatch() functions
   // If getting error store.getState does not exists, make sure setups is done like this https://github.com/reduxjs/redux-thunk
-  applyMiddleware(logger)
 );
 
 ReactDOM.render(

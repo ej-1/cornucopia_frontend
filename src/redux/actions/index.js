@@ -12,7 +12,6 @@ export const requestSimulation = formData => {
 export const receiveSimulation = (formData, json) => {
   return {
     type: ACTION_TYPES.RECEIVE_SIMULATION,
-    // rename following to payload
     formData: formData,
     candleSticks: json.candleSticks,
     transformedCandleSticks: transformCandleSticksForChart(json.candleSticks),

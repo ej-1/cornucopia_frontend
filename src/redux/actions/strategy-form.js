@@ -1,42 +1,57 @@
 import {
-  SELECT_AMOUNT,
+  CHANGE_AMOUNT,
   SELECT_CURRENCY_PAIR,
   SELECT_STRATEGY,
   SELECT_START_DATE,
-  SELECT_END_DATE
+  SELECT_END_DATE,
+  SUBMIT_FORM
 } from "../actions/actionTypes";
+import { fetchSimulation } from "../actions";
 
-export const selectAmount = formData => {
+export const changeAmount = event => {
   return {
-    type: SELECT_AMOUNT,
-    formData
+    type: CHANGE_AMOUNT,
+    amount: parseInt(event.target.value, 10)
   };
 };
 
-export const selectCurrencyPair = formData => {
+export const selectCurrencyPair = option => {
   return {
     type: SELECT_CURRENCY_PAIR,
-    formData
+    currencyPair: option
   };
 };
 
-export const selectStrategy = formData => {
+export const selectStrategy = option => {
   return {
     type: SELECT_STRATEGY,
-    formData
+    strategy: option
   };
 };
 
-export const selectStartDate = formData => {
+export const selectStartDate = date => {
   return {
     type: SELECT_START_DATE,
-    formData
+    startDate: date
   };
 };
 
-export const selectEndDate = formData => {
+export const selectEndDate = date => {
   return {
     type: SELECT_END_DATE,
-    formData
+    endDate: date
   };
+};
+
+export const submitForm = event => {
+  event.preventDefault();
+  console.log("ACTION submitForm", event);
+  fetchSimulation;
+  /*
+  console.log("ACTION submitForm", event);
+  return {
+    type: SUBMIT_FORM,
+    event
+  };
+  */
 };

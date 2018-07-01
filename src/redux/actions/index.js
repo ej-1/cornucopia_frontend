@@ -1,14 +1,10 @@
 import {
-  REQUEST_SIMULATION,
-  RECEIVE_SIMULATION,
-  RECEIVE_ERROR
-} from "../actions/actionTypes";
-import {
-  selectAmount,
+  changeAmount,
   selectCurrencyPair,
   selectStrategy,
   selectStartDate,
-  selectEndDate
+  selectEndDate,
+  submitForm
 } from "./strategy-form";
 import {
   requestSimulation,
@@ -17,4 +13,12 @@ import {
   fetchSimulation
 } from "./simulation";
 
-export default fetchSimulation;
+export {
+  fetchSimulation,
+  changeAmount,
+  selectCurrencyPair,
+  selectStrategy,
+  selectStartDate,
+  selectEndDate,
+  submitForm
+};

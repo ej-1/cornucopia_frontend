@@ -17,7 +17,7 @@ const Simulation = ({
   <Grid>
     <Row>
       <Col xs={12} md={3}>
-        <StrategyForm runSimulation={fetchSimulation} />
+        <StrategyForm />
       </Col>
 
       <Col xs={12} md={9}>

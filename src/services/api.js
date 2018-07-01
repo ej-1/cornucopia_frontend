@@ -2,18 +2,15 @@
 // fetch natively.
 // https://redux.js.org/advanced/async-actions
 import fetch from "cross-fetch";
-import getApiUrl from "../envconfig";
+import { API_ROOT } from "../api-config";
 
 const post = (path, body) =>
-  fetch(`${getApiUrl()}${path}`, {
-    headers: {
-      "content-type": "application/json"
-    },
+  fetch(`${API_ROOT}${path}`, {
     body: JSON.stringify(body),
     cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
     credentials: "omit", // include, same-origin, *omit
     headers: {
-      "user-agent": "CornucopiaTrader/1.0",
+      //"user-agent": "CornucopiaTrader/1.0",
       // CHECK AGAIN !!!!!!!!
       "content-type": "application/json" // ; charset=utf-8
     },

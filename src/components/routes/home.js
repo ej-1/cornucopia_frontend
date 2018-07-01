@@ -3,6 +3,7 @@ import { Image, Grid, Col, Row } from "react-bootstrap";
 
 import Jumbotron from "../home/jumbotron";
 import InfoBox from "../home/info-box";
+import "../routes/home.css";
 
 class Home extends Component {
   jumbotronProps = {
@@ -37,7 +38,9 @@ class Home extends Component {
     return (
       <Grid>
         <Row className="home-jumbotron">
-          <Jumbotron {...this.jumbotronProps} />
+          <Col xs={12} md={12}>
+            <Jumbotron {...this.jumbotronProps} />
+          </Col>
         </Row>
 
         <Row className="home-image-chart">
@@ -47,8 +50,14 @@ class Home extends Component {
         </Row>
 
         <Row className="home-info-boxes">
-          <InfoBox {...this.firstInfoBoxProps} />
-          <InfoBox {...this.secondInfoBoxProps} />
+          <Col xs={12} md={12}>
+            <Col xs={12} md={6}>
+              <InfoBox {...this.firstInfoBoxProps} />
+            </Col>
+            <Col xs={12} md={6}>
+              <InfoBox {...this.secondInfoBoxProps} />
+            </Col>
+          </Col>
         </Row>
       </Grid>
     );

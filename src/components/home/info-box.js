@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { PageHeader, Col, Button } from "react-bootstrap";
 
 const InfoBox = ({ header, text, buttonLink, buttonStyle, buttonText }) => (

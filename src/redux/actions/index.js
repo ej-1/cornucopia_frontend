@@ -1,4 +1,5 @@
-import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
+import { transformCandleSticksForChart } from "../../helpers/transform-candlesticks-for-chart";
+import { transformCandleSticks } from "../../helpers/transform-candlesticks";
 import { simulate } from "../../services/api";
 import {
   REQUEST_SIMULATION,
@@ -7,7 +8,6 @@ import {
 } from "../actions/actionTypes";
 
 export const requestSimulation = formData => {
-  console.log("ACTION MAN", formData);
   return {
     type: REQUEST_SIMULATION,
     formData
@@ -18,7 +18,7 @@ export const receiveSimulation = (formData, json) => {
   return {
     type: RECEIVE_SIMULATION,
     formData: formData,
-    candleSticks: json.candleSticks,
+    candleSticks: transformCandleSticks(json.candleSticks),
     transformedCandleSticks: transformCandleSticksForChart(json.candleSticks),
     roi: json.roi,
     receivedAt: Date.now()

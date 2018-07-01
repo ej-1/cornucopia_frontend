@@ -1,0 +1,37 @@
+.strategy-form-container {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.strategy-form {
+  margin: 20px;
+  padding: 30px;
+  background-color: #fff;
+}
+
+.amount {
+  margin-bottom: 15px;
+}
+
+.dropdown {
+  width: 100%;
+  margin-bottom: 7px;
+}
+
+.strategy-form .react-datepicker-wrapper {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.strategy-form .react-datepicker-wrapper .react-datepicker__input-container {
+  width: 100%;
+}
+
+/* fix for hour picker in datepicker that are displaced to the right*/
+.react-datepicker__time-container
+  .react-datepicker__time
+  .react-datepicker__time-box
+  ul.react-datepicker__time-list
+  li.react-datepicker__time-list-item {
+  margin-left: -80px;
+}

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
+import "../simulation/result-jumbotron.css";
 
 const ResultJumbotron = ({ roi }) => (
   <div className="result-jumbotron-container">

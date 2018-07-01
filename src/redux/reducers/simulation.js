@@ -48,9 +48,7 @@ function simulationReducer(state = initialState, action) {
         didInvalidate: false,
         error: null,
         candleSticks: action.candleSticks,
-        transformedCandleSticks: transformCandleSticksForChart(
-          action.candleSticks
-        ),
+        transformedCandleSticks: action.transformedCandleSticks,
         roi: action.roi,
         lastUpdated: action.receivedAt
       };

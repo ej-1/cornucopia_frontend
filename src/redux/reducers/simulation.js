@@ -1,4 +1,9 @@
-import { ACTION_TYPES } from "../actions/actionTypes";
+import {
+  REQUEST_SIMULATION,
+  RECEIVE_SIMULATION,
+  RECEIVE_ERROR
+} from "../actions/actionTypes";
+import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
 
 let index = 0;
 
@@ -14,8 +19,9 @@ let initialState = {
 
 function simulationReducer(state = initialState, action) {
   switch (action.type) {
-    case ACTION_TYPES.RECEIVE_ERROR:
-      return Object.assign({}, state, {
+    case RECEIVE_ERROR:
+      return {
+        ...state,
         formData: action.formData, // Form data should be handled by another reducer for strategy-form.
         index: index++,
         isFetching: true, // use this for spinner.
@@ -24,16 +30,18 @@ function simulationReducer(state = initialState, action) {
         candleSticks: null,
         transformedCandleSticks: null,
         roi: null
-      });
-    case ACTION_TYPES.REQUEST_SIMULATION:
-      return Object.assign({}, state, {
+      };
+    case REQUEST_SIMULATION:
+      return {
+        ...state,
         formData: action.formData,
         index: index++,
         isFetching: true,
         didInvalidate: false
-      });
-    case ACTION_TYPES.RECEIVE_SIMULATION:
-      return Object.assign({}, state, {
+      };
+    case RECEIVE_SIMULATION:
+      return {
+        ...state,
         formData: action.formData,
         index: index++,
         isFetching: false,
@@ -43,7 +51,7 @@ function simulationReducer(state = initialState, action) {
         transformedCandleSticks: action.transformedCandleSticks,
         roi: action.roi,
         lastUpdated: action.receivedAt
-      });
+      };
     default:
       return state;
   }

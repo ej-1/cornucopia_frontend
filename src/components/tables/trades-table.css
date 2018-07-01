@@ -12,3 +12,11 @@
 .trades-table td {
   text-align: left;
 }
+
+.trades-row-buy {
+  color: green;
+}
+
+.trades-row-sell {
+  color: red;
+}

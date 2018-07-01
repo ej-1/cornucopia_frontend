@@ -12,14 +12,12 @@ import {
 } from "../actions";
 
 const mapStateToProps = state => {
-  console.log("STATE IS : ", state.strategyForm);
   return state.strategyForm;
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     changeAmount: data => {
-      // alert("changeAmount");
       dispatch(changeAmount(data));
     },
     selectCurrencyPair: data => {
@@ -33,10 +31,6 @@ const mapDispatchToProps = dispatch => {
     },
     selectEndDate: data => {
       dispatch(selectEndDate(data));
-    },
-    // THIS MIGHT NOT BE NEEEDED
-    submitForm: data => {
-      dispatch(submitForm(data));
     },
     fetchSimulation: data => {
       dispatch(fetchSimulation(data));

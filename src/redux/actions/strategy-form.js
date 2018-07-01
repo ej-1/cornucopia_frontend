@@ -42,16 +42,3 @@ export const selectEndDate = date => {
     endDate: date
   };
 };
-
-export const submitForm = event => {
-  event.preventDefault();
-  console.log("ACTION submitForm", event);
-  fetchSimulation;
-  /*
-  console.log("ACTION submitForm", event);
-  return {
-    type: SUBMIT_FORM,
-    event
-  };
-  */
-};

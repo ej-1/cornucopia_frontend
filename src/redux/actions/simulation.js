@@ -36,7 +36,6 @@ export const receiveError = (formData, json) => {
 
 // Thunk action creator!
 export const fetchSimulation = formData => dispatch => {
-  console.log("WHAT IS FINAL FORM DATA", formData);
   dispatch(requestSimulation(formData));
   return simulate(formData).then(response => {
     if (response.error) {

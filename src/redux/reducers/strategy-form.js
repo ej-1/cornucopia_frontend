@@ -56,7 +56,6 @@ function strategyFormReducer(state = initialState, action) {
         endDate: action.endDate
       };
     case SUBMIT_FORM:
-      alert("REDUCER submitForm", state);
       return {
         ...state,
         index: index++

@@ -13,23 +13,25 @@ class TradesTable extends Component {
     // https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318
     this.props.candleSticks.forEach((candleStick, index) => {
       if (candleStick.position === 1) {
-        rows.push(<TradesRowBuy trade={candleStick} index={index} />);
+        const tradeBuy = {
+          date: candleStick.date,
+          symbol: candleStick.symbol,
+          close: candleStick.close,
+          netProfit: candleStick.netProfit,
+          index: index
+        };
+        rows.push(<TradesRowBuy {...tradeBuy} />);
       } else if (candleStick.position === -1 && candleStick.trade) {
-        if (candleStick.trade) {
-          console.log(
-            "BEFORE",
-            candleStick.trade.tradePriceGain,
-            "AFTER",
-            parseFloat(candleStick.trade.tradePriceGainPercent * 100).toFixed(2)
-          );
-        }
-        rows.push(
-          <TradesRowSell
-            trade={candleStick.trade}
-            candleStick={candleStick}
-            index={index}
-          />
-        );
+        const tradeSell = {
+          date: candleStick.date,
+          symbol: candleStick.symbol,
+          close: candleStick.close,
+          tradePriceGain: candleStick.trade.tradePriceGain,
+          tradePriceGainPercent: candleStick.trade.tradePriceGainPercent,
+          netProfit: candleStick.netProfit,
+          index: index
+        };
+        rows.push(<TradesRowSell {...tradeSell} />);
       }
     });
 

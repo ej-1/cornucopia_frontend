@@ -3,7 +3,6 @@ import {
   RECEIVE_SIMULATION,
   RECEIVE_ERROR
 } from "../actions/actionTypes";
-import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
 
 let index = 0;
 

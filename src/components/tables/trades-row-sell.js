@@ -10,18 +10,16 @@ const TradesRowSell = ({
   index
 }) => (
   <tr key={index}>
-    <td key={`${index}-${0}`}>
+    <td>
       <span className="trades-row-sell">Sell</span>
     </td>
-    <td key={`${index}-${1}`}>{date}</td>
-    <td key={`${index}-${2}`}>{symbol}</td>
-    <td key={`${index}-${3}`} />
-    <td key={`${index}-${4}`}>{Close}</td>
-    <td key={`${index}-${5}`}>{parseFloat(tradePriceGain).toFixed(5)}</td>
-    <td key={`${index}-${6}`}>
-      {parseFloat(tradePriceGainPercent * 100).toFixed(2)} %
-    </td>
-    <td key={`${index}-${7}`}>{netProfit}</td>
+    <td>{date}</td>
+    <td>{symbol}</td>
+    <td />
+    <td>{Close}</td>
+    <td>{tradePriceGain}</td>
+    <td>{tradePriceGain} %</td>
+    <td>{netProfit}</td>
   </tr>
 );
 

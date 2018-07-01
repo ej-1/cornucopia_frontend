@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, Grid, Col, Row } from "react-bootstrap";
 import TradesTable from "../tables/trades-table";
-import StrategyForm from "../forms/strategy-form";
+import StrategyForm from "../../redux/containers/strategy-form";
 import CandleStickChart from "../charts/candle-stick-chart";
 import Error from "../errors/error";
 import ResultJumbotron from "./result-jumbotron";

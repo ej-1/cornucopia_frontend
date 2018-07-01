@@ -2,7 +2,7 @@ import {
   transformCandleSticksForChart,
   smaVolume50,
   volumesFrom
-} from "../simulation/transform-candlesticks-for-chart";
+} from "../../helpers/transform-candlesticks-for-chart";
 
 describe("volumesFrom", () => {
   const candleSticks = [

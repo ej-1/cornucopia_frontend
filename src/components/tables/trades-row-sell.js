@@ -11,7 +11,7 @@ const TradesRowSell = ({
 }) => (
   <tr key={index}>
     <td key={`${index}-${0}`}>
-      <span style={{ color: "red" }}>Sell</span>
+      <span className="trades-row-sell">Sell</span>
     </td>
     <td key={`${index}-${1}`}>{date}</td>
     <td key={`${index}-${2}`}>{symbol}</td>

@@ -1,4 +1,4 @@
-import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
+import { transformCandleSticksForChart } from "../../helpers/transform-candlesticks-for-chart";
 import { transformCandleSticks } from "../../helpers/transform-candlesticks";
 import { simulate } from "../../services/api";
 import { ACTION_TYPES } from "../actions/actionTypes";

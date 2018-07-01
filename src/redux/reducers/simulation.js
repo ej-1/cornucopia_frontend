@@ -1,5 +1,4 @@
 import { ACTION_TYPES } from "../actions/actionTypes";
-import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
 
 let index = 0;
 
@@ -41,9 +40,7 @@ function simulationReducer(state = initialState, action) {
         didInvalidate: false,
         error: null,
         candleSticks: action.candleSticks,
-        transformedCandleSticks: transformCandleSticksForChart(
-          action.candleSticks
-        ),
+        transformedCandleSticks: action.transformedCandleSticks,
         roi: action.roi,
         lastUpdated: action.receivedAt
       });

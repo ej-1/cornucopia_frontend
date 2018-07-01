@@ -4,7 +4,6 @@ import { simulate } from "../../services/api";
 import { ACTION_TYPES } from "../actions/actionTypes";
 
 export const requestSimulation = formData => {
-  console.log("ACTION MAN", formData);
   return {
     type: ACTION_TYPES.REQUEST_SIMULATION,
     formData

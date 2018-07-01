@@ -15,6 +15,14 @@ class TradesTable extends Component {
       if (candleStick.position === 1) {
         rows.push(<TradesRowBuy trade={candleStick} index={index} />);
       } else if (candleStick.position === -1 && candleStick.trade) {
+        if (candleStick.trade) {
+          console.log(
+            "BEFORE",
+            candleStick.trade.tradePriceGain,
+            "AFTER",
+            parseFloat(candleStick.trade.tradePriceGainPercent * 100).toFixed(2)
+          );
+        }
         rows.push(
           <TradesRowSell
             trade={candleStick.trade}

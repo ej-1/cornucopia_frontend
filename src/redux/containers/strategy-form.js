@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import { connect } from "react-redux";
 import StrategyForm from "../../components/forms/strategy-form";
 import {
@@ -7,7 +6,6 @@ import {
   selectStrategy,
   selectStartDate,
   selectEndDate,
-  submitForm,
   fetchSimulation
 } from "../actions";
 

@@ -7,17 +7,17 @@ import {
   RECEIVE_ERROR
 } from "../actions/actionTypes";
 
-export const requestSimulation = formData => {
+export const requestSimulation = payload => {
   return {
     type: REQUEST_SIMULATION,
-    formData
+    payload
   };
 };
 
-export const receiveSimulation = (formData, json) => {
+export const receiveSimulation = (payload, json) => {
   return {
     type: RECEIVE_SIMULATION,
-    formData: formData,
+    payload,
     candleSticks: transformCandleSticks(json.candleSticks),
     transformedCandleSticks: transformCandleSticksForChart(json.candleSticks),
     roi: json.roi,
@@ -25,23 +25,23 @@ export const receiveSimulation = (formData, json) => {
   };
 };
 
-export const receiveError = (formData, json) => {
+export const receiveError = (payload, json) => {
   return {
     type: RECEIVE_ERROR,
-    formData: formData,
+    payload,
     error: json.error,
     receivedAt: Date.now()
   };
 };
 
 // Thunk action creator!
-export const fetchSimulation = formData => dispatch => {
-  dispatch(requestSimulation(formData));
-  return simulate(formData).then(response => {
+export const fetchSimulation = payload => dispatch => {
+  dispatch(requestSimulation(payload));
+  return simulate(payload).then(response => {
     if (response.error) {
-      dispatch(receiveError(formData, response));
+      dispatch(receiveError(payload, response));
     } else if (response.candleSticks) {
-      dispatch(receiveSimulation(formData, response));
+      dispatch(receiveSimulation(payload, response));
     }
   });
 };

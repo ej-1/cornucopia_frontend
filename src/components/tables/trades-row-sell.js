@@ -3,7 +3,7 @@ import React from "react";
 const TradesRowSell = ({
   date,
   symbol,
-  Close,
+  close,
   tradePriceGain,
   tradePriceGainPercent,
   netProfit,
@@ -16,7 +16,7 @@ const TradesRowSell = ({
     <td>{date}</td>
     <td>{symbol}</td>
     <td />
-    <td>{Close}</td>
+    <td>{close}</td>
     <td>{tradePriceGain}</td>
     <td>{tradePriceGainPercent} %</td>
     <td>{netProfit}</td>

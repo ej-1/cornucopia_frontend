@@ -46,7 +46,7 @@ class TradesTable extends Component {
               <th>Buy Price per Unit</th>
               <th>Sell Price per Unit</th>
               <th>Price Gain / Loss</th>
-              <th>Price Gain Percent</th>
+              <th>Profit percent</th>
               <th>Total Net Profit</th>
             </tr>
           </thead>

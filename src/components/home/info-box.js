@@ -2,7 +2,7 @@ import React from "react";
 import { PageHeader, Col, Button } from "react-bootstrap";
 
 const InfoBox = ({ header, text, buttonLink, buttonStyle, buttonText }) => (
-  <Col xs={12} md={6}>
+  <Col xs={12} md={12}>
     <PageHeader>
       {header.split("\n").map((item, key) => {
         return (

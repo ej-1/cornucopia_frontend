@@ -3,7 +3,6 @@ import {
   RECEIVE_SIMULATION,
   RECEIVE_ERROR
 } from "../actions/actionTypes";
-import { transformCandleSticksForChart } from "../../components/simulation/transform-candlesticks-for-chart";
 
 let index = 0;
 
@@ -22,7 +21,7 @@ function simulationReducer(state = initialState, action) {
     case RECEIVE_ERROR:
       return {
         ...state,
-        formData: action.formData, // Form data should be handled by another reducer for strategy-form.
+        payload: action.payload,
         index: index++,
         isFetching: true, // use this for spinner.
         didInvalidate: false,
@@ -34,7 +33,7 @@ function simulationReducer(state = initialState, action) {
     case REQUEST_SIMULATION:
       return {
         ...state,
-        formData: action.formData,
+        payload: action.payload,
         index: index++,
         isFetching: true,
         didInvalidate: false
@@ -42,7 +41,7 @@ function simulationReducer(state = initialState, action) {
     case RECEIVE_SIMULATION:
       return {
         ...state,
-        formData: action.formData,
+        payload: action.payload,
         index: index++,
         isFetching: false,
         didInvalidate: false,

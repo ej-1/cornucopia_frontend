@@ -10,8 +10,8 @@ let index = 0;
 
 let initialState = {
   index: index++,
-  currencyOptions: ["BTC-USDT", "BTC-BNB"],
-  strategyOptions: ["MACD", "EMA"]
+  currencyOptions: ["BTC-USDT"],
+  strategyOptions: ["MACD"]
 };
 
 function strategyFormReducer(state = initialState, action) {

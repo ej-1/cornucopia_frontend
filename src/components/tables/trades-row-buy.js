@@ -2,7 +2,7 @@ import React from "react";
 
 const TradesRowBuy = ({ date, symbol, close, netProfit, index }) => (
   <tr key={index}>
-    <td key={`${index}-${0}`}>
+    <td>
       <span className="trades-row-buy">Buy</span>
     </td>
     <td>{date}</td>

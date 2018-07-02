@@ -18,7 +18,7 @@ const TradesRowSell = ({
     <td />
     <td>{Close}</td>
     <td>{tradePriceGain}</td>
-    <td>{tradePriceGain} %</td>
+    <td>{tradePriceGainPercent} %</td>
     <td>{netProfit}</td>
   </tr>
 );

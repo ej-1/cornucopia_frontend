@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Grid, Col, Row } from "react-bootstrap";
+import { Grid, Col, Row } from "react-bootstrap";
 import TradesTable from "../tables/trades-table";
 import StrategyForm from "../../redux/containers/strategy-form";
 import CandleStickChart from "../charts/candle-stick-chart";

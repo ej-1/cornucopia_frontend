@@ -6,12 +6,7 @@ import {
   selectEndDate,
   submitForm
 } from "./strategy-form";
-import {
-  requestSimulation,
-  receiveSimulation,
-  receiveError,
-  fetchSimulation
-} from "./simulation";
+import { fetchSimulation } from "./simulation";
 
 export {
   fetchSimulation,

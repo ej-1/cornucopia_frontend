@@ -3,8 +3,7 @@ import {
   SELECT_CURRENCY_PAIR,
   SELECT_STRATEGY,
   SELECT_START_DATE,
-  SELECT_END_DATE,
-  SUBMIT_FORM
+  SELECT_END_DATE
 } from "../actions/actionTypes";
 
 let index = 0;
@@ -12,15 +11,7 @@ let index = 0;
 let initialState = {
   index: index++,
   currencyOptions: ["BTC-USDT", "BTC-BNB"],
-  strategyOptions: [
-    "MACD",
-    "EMA"
-  ] /*,
-  amount: null,
-  currencyPair: null,
-  strategy: null,
-  startDate: null,
-  endDate: null*/
+  strategyOptions: ["MACD", "EMA"]
 };
 
 function strategyFormReducer(state = initialState, action) {
@@ -54,11 +45,6 @@ function strategyFormReducer(state = initialState, action) {
         ...state,
         index: index++,
         endDate: action.endDate
-      };
-    case SUBMIT_FORM:
-      return {
-        ...state,
-        index: index++
       };
     default:
       return state;

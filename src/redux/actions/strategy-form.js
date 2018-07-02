@@ -3,10 +3,8 @@ import {
   SELECT_CURRENCY_PAIR,
   SELECT_STRATEGY,
   SELECT_START_DATE,
-  SELECT_END_DATE,
-  SUBMIT_FORM
+  SELECT_END_DATE
 } from "../actions/actionTypes";
-import { fetchSimulation } from "../actions";
 
 export const changeAmount = event => {
   return {

@@ -38,14 +38,15 @@ const StrategyForm = ({
           });
         }}
       >
-        <ControlLabel>Amount</ControlLabel>{" "}
+        {/*DON'T USE AMOUNT FOR NOW*/}
+        {/*<ControlLabel>Amount</ControlLabel> 
         <FormControl
           id="amount"
           className="amount"
           componentClass="input"
           type="number"
           onChange={changeAmount}
-        />
+        />*/}
         <DropDown
           title="currency"
           onSelect={selectCurrencyPair}

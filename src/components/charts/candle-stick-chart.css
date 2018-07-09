@@ -2,10 +2,8 @@
   margin: 20px;
   background-color: #fff;
   padding: 30px;
-  border-radius: 5px;
-}
+  border-radius: 5px; }
 
 /*  overriding react-stockchart CSS */
 .react-stockchart .react-stockchart {
-  position: relative !important;
-}
+  position: relative !important; }

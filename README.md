@@ -22,8 +22,6 @@ NOTICE: BACKEND AND FRONTEND MIGHT TAKE A WHILE TO FIRE UP IF NOT VISITED IN WHI
 
 Demo app https://cornucopia-frontend.herokuapp.com
 
-The simulation form https://cornucopia-frontend.herokuapp.com/simulate
-
 # Production Backend
 
 Cornucopia has a backend build with Node.js and Express.js located at https://cornucopia-backend.herokuapp.com/ which is hosted as a private repo.

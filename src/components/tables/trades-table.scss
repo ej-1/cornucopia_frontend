@@ -1,0 +1,25 @@
+$font-stack: Helvetica, sans-serif;
+$primary-background-color: #fff;
+
+.trades-table {
+  margin: 20px;
+  background-color: $primary-background-color;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.trades-table th {
+  text-align: center;
+}
+
+.trades-table td {
+  text-align: left;
+}
+
+.trades-row-buy {
+  color: green;
+}
+
+.trades-row-sell {
+  color: red;
+}

@@ -1,0 +1,13 @@
+$primary-background-color: #fff;
+
+.chart {
+  margin: 20px;
+  background-color: $primary-background-color;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+/*  overriding react-stockchart CSS */
+.react-stockchart .react-stockchart {
+  position: relative !important;
+}

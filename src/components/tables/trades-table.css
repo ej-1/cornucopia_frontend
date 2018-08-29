@@ -2,21 +2,16 @@
   margin: 20px;
   background-color: #fff;
   padding: 30px;
-  border-radius: 5px;
-}
+  border-radius: 5px; }
 
 .trades-table th {
-  text-align: center;
-}
+  text-align: center; }
 
 .trades-table td {
-  text-align: left;
-}
+  text-align: left; }
 
 .trades-row-buy {
-  color: green;
-}
+  color: green; }
 
 .trades-row-sell {
-  color: red;
-}
+  color: red; }

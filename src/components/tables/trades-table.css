@@ -1,8 +1,7 @@
-.table-container {
+.trades-table-container {
   padding: 20px; }
 
 .table {
-  margin: 20px;
   background-color: #fff;
   padding: 30px;
   border-radius: 5px; }

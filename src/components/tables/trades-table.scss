@@ -1,23 +1,23 @@
 $font-stack: Helvetica, sans-serif;
 $primary-background-color: #fff;
 
-.trades-table-container {
+.table-container {
   padding: 20px;
 }
 
-.trades-table {
+.table {
   margin: 20px;
   background-color: $primary-background-color;
   padding: 30px;
   border-radius: 5px;
 }
 
-.trades-table th {
-  text-align: center;
+.table th {
+  text-align: right;
 }
 
-.trades-table td {
-  text-align: left;
+.table td {
+  text-align: right;
 }
 
 .trades-row-buy {
@@ -26,4 +26,8 @@ $primary-background-color: #fff;
 
 .trades-row-sell {
   color: red;
+}
+
+.table td.trade-type {
+  text-align: center;
 }

@@ -7,25 +7,26 @@ import Error from "../errors/error";
 import ResultJumbotron from "./result-jumbotron";
 import "../simulation/simulation.css";
 
-const Simulation = ({
-  error,
-  candleSticks,
-  transformedCandleSticks,
-  roi,
-  fetchSimulation
-}) => (
+const Simulation = ({ error, candleSticks, transformedCandleSticks, roi }) => (
   <Grid>
     <Row>
       <Col xs={12} md={3}>
         <StrategyForm />
       </Col>
-
       <Col xs={12} md={9}>
-        <div className="simulation-chart-and-table-container">
-          {error && <Error message={error.message} />}
-          {transformedCandleSticks && (
-            <CandleStickChart candleSticks={transformedCandleSticks} />
-          )}
+        {(error || transformedCandleSticks) && (
+          <div className="simulation-chart-container">
+            {error && <Error message={error.message} />}
+            {transformedCandleSticks && (
+              <CandleStickChart candleSticks={transformedCandleSticks} />
+            )}
+          </div>
+        )}
+      </Col>
+    </Row>
+    <Row>
+      <Col xs={12} md={12}>
+        <div className="trades-table-and-jumbotron-container">
           {roi != null && <ResultJumbotron roi={roi} />}
           {candleSticks && <TradesTable candleSticks={candleSticks} />}
         </div>

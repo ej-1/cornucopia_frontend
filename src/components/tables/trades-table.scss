@@ -1,6 +1,10 @@
 $font-stack: Helvetica, sans-serif;
 $primary-background-color: #fff;
 
+.trades-table-container {
+  padding: 20px;
+}
+
 .trades-table {
   margin: 20px;
   background-color: $primary-background-color;

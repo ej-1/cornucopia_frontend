@@ -1,4 +1,6 @@
 $primary-background-color: #fff;
+$break-small: 320px;
+$break-large: 1200px;
 
 .strategy-form-container {
   display: inline-block;
@@ -13,8 +15,15 @@ $primary-background-color: #fff;
 
 .strategy-form {
   margin: 20px;
-  padding: 30px;
   background-color: $primary-background-color;
+
+  @media only screen and (min-width: $break-large+1) {
+    padding: 30px;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    padding: 17px;
+  }
 }
 
 .amount {

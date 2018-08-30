@@ -1,20 +1,28 @@
 $primary-background-color: #fff;
+$break-small: 320px;
+$break-large: 1200px;
 
 .strategy-form-container {
   display: inline-block;
   vertical-align: top;
-}
-
-@media only screen and (min-width: 900px) {
-  .strategy-form-container {
-    height: 705px;
-  }
+  width: 100%;
 }
 
 .strategy-form {
-  margin: 20px;
-  padding: 30px;
   background-color: $primary-background-color;
+  width: 100%;
+
+  @media only screen and (min-width: $break-large+1) {
+    padding: 30px;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    padding: 17px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    padding: 20px;
+  }
 }
 
 .amount {
@@ -27,8 +35,6 @@ $primary-background-color: #fff;
 }
 
 .strategy-form {
-  height: 100%;
-
   .react-datepicker-wrapper {
     width: 100%;
     margin-bottom: 15px;
@@ -48,6 +54,12 @@ $primary-background-color: #fff;
   .react-datepicker__input-container {
     width: 100%;
   }
+}
+
+/* fix to make the input fields as wide as the form container */
+.react-datepicker__input-container input {
+  width: 100%;
+  text-align: center;
 }
 
 /* fix for hour picker in datepicker that are displaced to the right*/

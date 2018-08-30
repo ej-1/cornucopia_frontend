@@ -14,7 +14,7 @@ const StrategyForm = ({
   startDate,
   currencyOptions,
   strategyOptions,
-  changeAmount,
+  //changeAmount,
   selectCurrencyPair,
   selectStrategy,
   selectStartDate,
@@ -79,12 +79,11 @@ const StrategyForm = ({
           />
         </div>
         <Button bsStyle="warning" type="submit" block>
-          Submit
+          Simulate
         </Button>
       </form>
     </div>
   </div>
 );
 
-export default StrategyForm; // officiella module export sättet, men i node är det inte uppdaterat, så där måste man skriva
-// module.exports = { runSimulation, trades, net_profit, net_profit_percent }
+export default StrategyForm;

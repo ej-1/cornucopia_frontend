@@ -10,7 +10,7 @@ const TradesRowSell = ({
   index
 }) => (
   <tr key={index}>
-    <td>
+    <td className="trade-type">
       <span className="trades-row-sell">Sell</span>
     </td>
     <td>{date}</td>

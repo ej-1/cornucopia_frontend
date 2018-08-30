@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { MenuItem, DropdownButton } from "react-bootstrap";
+import "../dropdown/dropdown.css";
 
 import "react-datepicker/dist/react-datepicker.css";
 

@@ -1,20 +1,23 @@
 .trades-table-container {
-  padding: 20px; }
+  padding-top: 20px;
+  padding-bottom: 20px; }
 
-.trades-table {
-  margin: 20px;
+.table {
   background-color: #fff;
   padding: 30px;
   border-radius: 5px; }
 
-.trades-table th {
-  text-align: center; }
+.table th {
+  text-align: right; }
 
-.trades-table td {
-  text-align: left; }
+.table td {
+  text-align: right; }
 
 .trades-row-buy {
   color: green; }
 
 .trades-row-sell {
   color: red; }
+
+.table td.trade-type {
+  text-align: center; }

@@ -10,10 +10,10 @@ import "../simulation/simulation.css";
 const Simulation = ({ error, candleSticks, transformedCandleSticks, roi }) => (
   <Grid>
     <Row>
-      <Col xs={12} md={4}>
+      <Col xs={12} md={3}>
         <StrategyForm />
       </Col>
-      <Col xs={12} md={8}>
+      <Col xs={12} md={9}>
         {(error || transformedCandleSticks) && (
           <div className="simulation-chart-container">
             {error && <Error message={error.message} />}

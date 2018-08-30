@@ -10,7 +10,7 @@ import "../simulation/simulation.css";
 const Simulation = ({ error, candleSticks, transformedCandleSticks, roi }) => (
   <Grid>
     <Row>
-      <Col xs={12} md={3}>
+      <Col xs={8} sm={6} md={3} xsOffset={2} smOffset={3} mdOffset={0}>
         <StrategyForm />
       </Col>
       <Col xs={12} md={9}>

@@ -4,7 +4,7 @@ class RobotConfiguration extends Component {
   render() {
     return (
       <div className="Robot-config">
-        <h1>ROBOT CONFIG</h1>
+        <h1>Coming soon...</h1>
       </div>
     );
   }

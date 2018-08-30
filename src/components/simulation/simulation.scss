@@ -10,4 +10,8 @@ $primary-background-color: #fff;
   padding-top: 45px;
   padding-bottom: 35px;
   height: 705px;
+
+  @media only screen and (max-width: 991px) {
+    margin-top: 20px;
+  }
 }

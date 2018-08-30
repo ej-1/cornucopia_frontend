@@ -7,3 +7,6 @@
   padding-top: 45px;
   padding-bottom: 35px;
   height: 705px; }
+  @media only screen and (max-width: 991px) {
+    .simulation-chart-container {
+      margin-top: 20px; } }

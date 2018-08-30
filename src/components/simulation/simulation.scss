@@ -7,17 +7,8 @@ $primary-background-color: #fff;
 .simulation-chart-container {
   background-color: $primary-background-color;
   margin-top: 20px;
-  margin-right: 20px;
   border-radius: 1px;
   padding-top: 45px;
   padding-bottom: 35px;
   height: 705px;
-
-  @media only screen and (min-width: 991px) {
-    margin-left: -20px;
-  }
-
-  @media only screen and (max-width: 990px) {
-    margin-left: 20px;
-  }
 }

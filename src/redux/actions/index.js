@@ -4,7 +4,12 @@ import {
   selectStrategy,
   selectStartDate,
   selectEndDate,
-  submitForm
+  submitForm,
+  changeFastPeriod,
+  changeSlowPeriod,
+  changeSignalPeriod,
+  selectSimpleMAOscillator,
+  selectSimpleMASignal
 } from "./strategy-form";
 import { fetchSimulation } from "./simulation";
 
@@ -15,5 +20,10 @@ export {
   selectStrategy,
   selectStartDate,
   selectEndDate,
-  submitForm
+  submitForm,
+  changeFastPeriod,
+  changeSlowPeriod,
+  changeSignalPeriod,
+  selectSimpleMAOscillator,
+  selectSimpleMASignal
 };

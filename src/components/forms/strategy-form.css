@@ -20,19 +20,19 @@
   margin-bottom: 15px; }
 
 .dropdown {
-  width: 100%;
-  margin-bottom: 7px; }
+  width: 100%; }
+
+.control-label {
+  margin-top: 10px; }
 
 .strategy-form .react-datepicker-wrapper {
-  width: 100%;
-  margin-bottom: 15px; }
+  width: 100%; }
 
 .strategy-form .react-datepicker__input-container {
   width: 100%; }
 
 .react-datepicker__time-container .react-datepicker-wrapper {
-  width: 100%;
-  margin-bottom: 15px; }
+  width: 100%; }
 
 .react-datepicker__time-container .react-datepicker__input-container {
   width: 100%; }
@@ -49,3 +49,6 @@
 ul.react-datepicker__time-list
 li.react-datepicker__time-list-item {
   margin-left: -80px; }
+
+.btn {
+  margin-top: 20px; }

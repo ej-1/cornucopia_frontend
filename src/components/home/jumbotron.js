@@ -29,7 +29,8 @@ const Jumbotron = ({ header, text, buttonLink, buttonStyle, buttonText }) => (
           {buttonText}
         </Button>
       </p>
-    </BootstrapJumbotron>;
+    </BootstrapJumbotron>
+    ;
   </Col>
 );
 

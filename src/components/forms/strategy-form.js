@@ -5,6 +5,7 @@ import moment from "moment";
 import DropDown from "../forms/dropdown/dropdown";
 import "react-datepicker/dist/react-datepicker.css";
 import "../forms/strategy-form.css";
+import MacdOptions from "../forms/strategy-options/macd-options.js";
 
 const StrategyForm = ({
   amount,
@@ -20,7 +21,7 @@ const StrategyForm = ({
   currencyOptions,
   strategyOptions,
   simpleMAOscillatorOptions,
-  selectSimpleMASignalOptions,
+  simpleMASignalOptions,
   //changeAmount,
   selectCurrencyPair,
   selectStrategy,
@@ -75,42 +76,19 @@ const StrategyForm = ({
           onSelect={selectStrategy}
           options={strategyOptions}
         />
-        <ControlLabel>Fast Period</ControlLabel>
-        <FormControl
-          id="fastPeriod"
-          className="fastPeriod"
-          componentClass="input"
-          type="number"
-          value={fastPeriod}
-          onChange={changeFastPeriod}
-        />
-        <ControlLabel>Slow Period</ControlLabel>
-        <FormControl
-          id="slowPeriod"
-          className="slowPeriod"
-          componentClass="input"
-          type="number"
-          value={slowPeriod}
-          onChange={changeSlowPeriod}
-        />
-        <ControlLabel>Signal Period</ControlLabel>
-        <FormControl
-          id="signalPeriod"
-          className="signalPeriod"
-          componentClass="input"
-          type="number"
-          value={signalPeriod}
-          onChange={changeSignalPeriod}
-        />
-        <DropDown
-          title="simpleMAOscillator"
-          onSelect={selectSimpleMAOscillator}
-          options={["true", "false"]}
-        />
-        <DropDown
-          title="simpleMASignal"
-          onSelect={selectSimpleMASignal}
-          options={["true", "false"]}
+        <MacdOptions
+          {...{
+            fastPeriod,
+            slowPeriod,
+            signalPeriod,
+            selectSimpleMAOscillator,
+            selectSimpleMASignal,
+            simpleMAOscillatorOptions,
+            simpleMASignalOptions,
+            changeFastPeriod,
+            changeSlowPeriod,
+            changeSignalPeriod
+          }}
         />
         <div>
           <ControlLabel>Trading Start date</ControlLabel>

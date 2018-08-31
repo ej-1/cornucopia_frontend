@@ -21,8 +21,8 @@ let initialState = {
   fastPeriod: 21,
   slowPeriod: 50,
   signalPeriod: 9,
-  simpleMAOscillatorOptions: [false, true],
-  simpleMASignalOptions: [false, true],
+  simpleMAOscillatorOptions: ["false", "true"],
+  simpleMASignalOptions: ["false", "true"],
   endDate: moment(Date.now()),
   startDate: moment(Date.now())
 };

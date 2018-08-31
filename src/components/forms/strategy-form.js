@@ -102,13 +102,11 @@ const StrategyForm = ({
           value={signalPeriod}
           onChange={changeSignalPeriod}
         />
-        <ControlLabel>Simple MA Oscillator</ControlLabel>
         <DropDown
           title="simpleMAOscillator"
           onSelect={selectSimpleMAOscillator}
           options={["true", "false"]}
         />
-        <ControlLabel>Simple MA Signal</ControlLabel>
         <DropDown
           title="simpleMASignal"
           onSelect={selectSimpleMASignal}

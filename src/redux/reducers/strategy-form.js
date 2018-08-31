@@ -51,31 +51,31 @@ function strategyFormReducer(state = initialState, action) {
       return {
         ...state,
         index: index++,
-        fastPeriod: action.changeFastPeriod
+        fastPeriod: action.fastPeriod
       };
     case CHANGE_SLOW_PERIOD:
       return {
         ...state,
         index: index++,
-        slowPeriod: action.changeSlowPeriod
+        slowPeriod: action.slowPeriod
       };
     case CHANGE_SIGNAL_PERIOD:
       return {
         ...state,
         index: index++,
-        signalPeriod: action.changeSignalPeriod
+        signalPeriod: action.signalPeriod
       };
     case SELECT_SIMPLE_MA_OSCILLATOR:
       return {
         ...state,
         index: index++,
-        simpleMAOscillator: action.selectSimpleMAOscillator
+        simpleMAOscillator: action.simpleMAOscillator
       };
     case SELECT_SIMPLE_MA_SIGNAL:
       return {
         ...state,
         index: index++,
-        simpleMASignal: action.selectSimpleMASignal
+        simpleMASignal: action.simpleMASignal
       };
     case SELECT_START_DATE:
       return {

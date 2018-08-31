@@ -46,24 +46,24 @@ export const selectEndDate = date => {
   };
 };
 
-export const changeFastPeriod = number => {
+export const changeFastPeriod = event => {
   return {
     type: CHANGE_FAST_PERIOD,
-    fastPeriod: number
+    fastPeriod: event.target.value
   };
 };
 
-export const changeSlowPeriod = number => {
+export const changeSlowPeriod = event => {
   return {
     type: CHANGE_SLOW_PERIOD,
-    slowPeriod: number
+    slowPeriod: event.target.value
   };
 };
 
-export const changeSignalPeriod = number => {
+export const changeSignalPeriod = event => {
   return {
     type: CHANGE_SIGNAL_PERIOD,
-    signalPeriod: number
+    signalPeriod: event.target.value
   };
 };
 

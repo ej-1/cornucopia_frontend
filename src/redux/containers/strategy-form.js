@@ -6,7 +6,12 @@ import {
   selectStrategy,
   selectStartDate,
   selectEndDate,
-  fetchSimulation
+  fetchSimulation,
+  changeFastPeriod,
+  changeSlowPeriod,
+  changeSignalPeriod,
+  selectSimpleMAOscillator,
+  selectSimpleMASignal
 } from "../actions";
 
 const mapStateToProps = state => {
@@ -32,6 +37,21 @@ const mapDispatchToProps = dispatch => {
     },
     fetchSimulation: data => {
       dispatch(fetchSimulation(data));
+    },
+    changeFastPeriod: data => {
+      dispatch(changeFastPeriod(data));
+    },
+    changeSlowPeriod: data => {
+      dispatch(changeSlowPeriod(data));
+    },
+    changeSignalPeriod: data => {
+      dispatch(changeSignalPeriod(data));
+    },
+    selectSimpleMAOscillator: data => {
+      dispatch(selectSimpleMAOscillator(data));
+    },
+    selectSimpleMASignal: data => {
+      dispatch(selectSimpleMASignal(data));
     }
   };
 };

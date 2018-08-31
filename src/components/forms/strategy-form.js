@@ -12,11 +12,21 @@ const StrategyForm = ({
   strategy,
   endDate,
   startDate,
+  fastPeriod,
+  slowPeriod,
+  signalPeriod,
   currencyOptions,
   strategyOptions,
+  simpleMAOscillatorOptions,
+  selectSimpleMASignalOptions,
   //changeAmount,
   selectCurrencyPair,
   selectStrategy,
+  changeFastPeriod,
+  changeSlowPeriod,
+  changeSignalPeriod,
+  selectSimpleMAOscillator,
+  selectSimpleMASignal,
   selectStartDate,
   selectEndDate,
   fetchSimulation
@@ -58,8 +68,45 @@ const StrategyForm = ({
           onSelect={selectStrategy}
           options={strategyOptions}
         />
+        <ControlLabel>Fast Period</ControlLabel>
+        <FormControl
+          id="fastPeriod"
+          className="fastPeriod"
+          componentClass="input"
+          type="number"
+          value={fastPeriod}
+          onChange={changeFastPeriod}
+        />
+        <ControlLabel>Slow Period</ControlLabel>
+        <FormControl
+          id="slowPeriod"
+          className="slowPeriod"
+          componentClass="input"
+          type="number"
+          value={slowPeriod}
+          onChange={changeSlowPeriod}
+        />
+        <ControlLabel>Signal Period</ControlLabel>
+        <FormControl
+          id="signalPeriod"
+          className="signalPeriod"
+          componentClass="input"
+          type="number"
+          value={signalPeriod}
+          onChange={changeSignalPeriod}
+        />
+        <DropDown
+          title="simpleMAOscillator"
+          onSelect={selectSimpleMAOscillator}
+          options={["true", "false"]}
+        />
+        <DropDown
+          title="simpleMASignal"
+          onSelect={selectSimpleMASignal}
+          options={["true", "false"]}
+        />
         <div>
-          <ControlLabel>Trading Start date</ControlLabel>{" "}
+          <ControlLabel>Trading Start date</ControlLabel>
           <DatePicker
             id="datepicker-startdate"
             selected={moment(startDate)}
@@ -68,7 +115,7 @@ const StrategyForm = ({
             dateFormat="YYYY/MM/DD HH:00"
             timeFormat="HH:mm"
           />
-          <ControlLabel>Trading End date</ControlLabel>{" "}
+          <ControlLabel>Trading End date</ControlLabel>
           <DatePicker
             id="datepicker-enddate"
             selected={moment(endDate)}

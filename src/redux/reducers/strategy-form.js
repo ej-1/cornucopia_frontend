@@ -6,12 +6,16 @@ import {
   SELECT_END_DATE
 } from "../actions/actionTypes";
 
+import moment from "moment";
+
 let index = 0;
 
 let initialState = {
   index: index++,
   currencyOptions: ["BTC-USDT"],
-  strategyOptions: ["MACD"]
+  strategyOptions: ["MACD"],
+  endDate: moment(Date.now()),
+  startDate: moment(Date.now())
 };
 
 function strategyFormReducer(state = initialState, action) {
